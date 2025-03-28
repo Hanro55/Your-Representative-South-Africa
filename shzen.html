@@ -10,6 +10,7 @@
             text-align: center; 
             margin: 0; 
             padding: 0; 
+            padding-top: 120px; /* Add padding to the top to ensure content is below the fixed nav */
             background: linear-gradient(to bottom, #d9fdd9, #a2e0a2); /* Soft green gradient */
         }
 
@@ -42,7 +43,6 @@
             padding: 20px; 
             font-size: 36px; /* Increased header size */
             font-weight: bold;
-            margin-top: 80px; /* Space below the top nav */
             display: flex; /* Use flexbox for layout */
             justify-content: space-between; /* Space between logo and search bar */
             align-items: center; /* Align items vertically */
@@ -91,7 +91,6 @@
 
         /* Main Content */
         .content {
-            margin-top: 120px; /* Adjusted for fixed header */
             padding: 20px;
         }
 
@@ -198,7 +197,6 @@
             .header {
                 flex-direction: column; /* Stack logo and heading */
                 align-items: center; /* Center align items vertically */
-                margin-top: 90px; /* Increased space below top nav for mobile */
                 font-size: 28px; /* Smaller header size */
             }
             .top-nav {
