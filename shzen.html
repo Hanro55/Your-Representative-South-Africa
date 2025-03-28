@@ -13,30 +13,18 @@
             background: linear-gradient(to bottom, #d9fdd9, #a2e0a2); /* Soft green gradient */
         }
 
-        /* Header */
-        .header { 
-            background-color: lightgreen; 
-            padding: 20px; 
-            font-size: 36px; /* Increased header size */
-            font-weight: bold;
-            display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center content */
-            align-items: center; /* Align items vertically */
-            flex-direction: column; /* Stack items vertically */
-            margin-bottom: 10px; /* Space below header */
-        }
-
         /* Top Navigation Bar */
         .top-nav {
             background-color: #00796b; /* Top navigation background color */
             color: white;
             padding: 10px;
+            width: 100%;
+            z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
             flex-wrap: wrap; /* Wrap links for smaller screens */
-            position: relative; /* Position relative for mobile menu */
+            position: relative; /* Changed to relative to avoid overlap */
         }
-
         .top-nav a {
             color: white;
             text-decoration: none;
@@ -47,17 +35,37 @@
             text-decoration: underline;
         }
 
-        /* Hamburger Menu */
+        /* Sh'Zen Header */
+        .header { 
+            background-color: lightgreen; 
+            padding: 20px; 
+            font-size: 36px; /* Increased header size */
+            font-weight: bold;
+            margin-top: 10px; /* Reduced margin to avoid excessive space */
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center content */
+            align-items: center; /* Align items vertically */
+        }
+
+        /* Sh'Zen Logo */
+        .shzen-logo {
+            margin-right: 10px; /* Space between image and heading */
+            width: 120px; /* Increased size */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Sidebar Navigation */
         .menu {
-            display: none; /* Hide by default */
+            position: fixed;
+            top: 15px;
+            left: 20px;
             cursor: pointer;
+            z-index: 1001;
         }
         .menu img {
             width: 40px;
             height: 40px;
         }
-
-        /* Sidebar Navigation */
         .sidebar {
             position: fixed;
             left: -250px;
@@ -65,7 +73,7 @@
             width: 250px;
             height: 100%;
             background-color: #333;
-            padding-top: 60px;
+            padding-top: 60px; /* Space for the top nav */
             transition: left 0.3s;
             z-index: 1001;
         }
@@ -82,16 +90,15 @@
 
         /* Main Content */
         .content {
+            margin-top: 140px; /* Adjusted for header and top nav */
             padding: 20px;
-            margin-top: 20px; /* Space below nav */
         }
 
         /* Search Box */
         .search-container {
+            margin-left: auto; /* Aligns search bar to the far right */
             display: flex; /* Flexbox for alignment */
-            justify-content: center; /* Center align items horizontally */
             align-items: center; /* Center align items vertically */
-            margin-top: 10px; /* Space above search container */
         }
         .search-container input {
             padding: 10px;
@@ -187,30 +194,16 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .menu {
-                display: block; /* Show hamburger menu on mobile */
+            .header {
+                margin-top: 60px; /* Add space below the fixed top nav */
             }
             .top-nav {
-                display: none; /* Hide the normal nav bar on mobile */
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
             }
-            .sidebar {
-                display: block; /* Display sidebar */
-                position: fixed; /* Fixed position */
-                left: 0; /* Start from left */
-                top: 0; /* Align to top */
-                width: 100%; /* Full width on mobile */
-                height: 100%; /* Full height on mobile */
-            }
-            .header {
-                font-size: 28px; /* Smaller header size */
-            }
-            .search-container input {
-                width: 80%; /* Full width for mobile */
-                margin-bottom: 10px; /* Space below input */
-            }
-            .search-container {
-                flex-direction: column; /* Stack search input and button */
-                align-items: center; /* Center items vertically */
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 5px 0; /* Reduced margin for better spacing */
             }
             .social-button {
                 font-size: 14px; /* Smaller button font size for mobile */
@@ -249,23 +242,9 @@
     </script>
 </head>
 <body>
-    <div class="header">
-        <div style="display: flex; align-items: center;">
-            <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen Logo" class="shzen-logo"> <!-- Replace with the correct path -->
-            <span>Sh'Zen</span>
-        </div>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search this page">
-            <button onclick="searchContent()">Search</button>
-        </div>
-    </div>
-
-    <!-- Hamburger Menu -->
     <div class="menu" onclick="toggleMenu()">
         <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
     </div>
-
-    <!-- Sidebar Navigation -->
     <div class="sidebar" id="sidebar">
         <a href="index.html">Home</a>
         <a href="avon.html">Avon</a>
@@ -281,6 +260,18 @@
         <a href="shzen.html">Sh'Zen</a>
         <a href="tablecharm.html">Table Charm</a>
         <a href="shop.html">Hanro's Little Things</a>
+    </div>
+
+    <!-- Sh'Zen Header -->
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen Logo" class="shzen-logo"> <!-- Replace with the correct path -->
+            <span>Sh'Zen</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search this page">
+            <button onclick="searchContent()">Search</button>
+        </div>
     </div>
 
     <!-- Social Media Buttons -->
