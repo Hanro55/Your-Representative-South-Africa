@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Rep South Africa</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* Soft turquoise gradient */
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background-color: #00796b; /* Top navigation background color (teal) */
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center content */
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header { 
+            background-color: turquoise; /* Changed header background color to turquoise */
+            padding: 20px; 
+            font-size: 36px; /* Increased header size */
+            font-weight: bold;
+            margin-top: 60px; /* Space below the top nav */
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center content */
+            align-items: center; /* Align items vertically */
+        }
+
+        /* Sidebar Navigation */
+        .menu {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu img {
+            width: 40px;
+            height: 40px;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            transition: left 0.3s;
+            z-index: 1001;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Button styles */
+        .social-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            background-color: #00796b; /* Button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: transform 0.3s; /* Add transition for pop-out effect */
+        }
+        .social-button:hover {
+            transform: scale(1.05); /* Pop-out effect on hover */
+            background-color: #005b4f; /* Darker shade on hover */
+        }
+
+        /* Container for Boxes */
+        .container {
+            display: flex; 
+            justify-content: center; 
+            align-items: flex-start; 
+            margin-top: 20px; 
+            flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
+        }
+        .box {
+            margin: 20px; /* Increased margin for better spacing */
+            text-align: center;
+            cursor: pointer;
+            width: 30%; 
+            transition: transform 0.3s; /* Add transition for hover effect */
+        }
+        .box:hover {
+            transform: scale(1.05); /* Slightly zoom on hover */
+        }
+        .box img {
+            width: auto; 
+            height: auto; 
+            max-width: 100%; 
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333; 
+            color: white; 
+            padding: 10px; 
+            position: relative; 
+            bottom: 0; 
+            width: 100%; 
+            text-align: center; 
+            margin-top: 20px; 
+        }
+
+        /* PDF Button */
+        .view-pdf-button {
+            display: inline-block;
+            margin-top: 15px; 
+            padding: 12px 24px; /* Increased padding for bigger buttons */
+            background-color: white; 
+            color: black; 
+            text-decoration: none; 
+            border-radius: 8px; /* More rounded corners */
+            font-size: 22px; /* Increased font size */
+            box-shadow: 0 4px 8px rgba(0, 0, 255, 0.6); /* Blue shadow */
+        }
+        .view-pdf-button:hover {
+            background-color: lightblue; /* Change background on hover */
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            let sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu" onclick="toggleMenu()">
+        <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot 2025-03-27 143455.png" alt="Menu">
+    </div>
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+    </div>
+    
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+    </div>
+
+    <!-- Header -->
+    <div class="header">Your Rep South Africa</div>
+
+    <!-- Social Media Buttons -->
+    <div>
+        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
+        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
+        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
+        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    </div>
+
+    <!-- Container for Boxes -->
+    <div class="container">
+        <div class="box avon" onclick="location.href='avon.html';">
+            <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot 2025-03-27 001350.png" alt="Avon">
+            <div class="description">Avon is a trusted global beauty brand offering high-quality skincare and makeup.</div>
+        </div>
+        <div class="box shzen" onclick="location.href='shzen.html';">
+            <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot 2025-03-27 001731.png" alt="Sh'Zen">
+            <div class="description">Sh'Zen provides natural skincare products that enhance your beauty.</div>
+        </div>
+        <div class="box tablecharm" onclick="location.href='tablecharm.html';">
+            <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot 2025-03-27 101417.png" alt="Table Charm">
+            <div class="description">Table Charm offers elegant tableware for all your dining needs.</div>
+        </div>
+        <div class="box shop" onclick="location.href='shop.html';">
+            <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot_2025-01-05_135939.avif" alt="Hanro's Little Things">
+            <div class="description">Explore unique items at Hanro's Little Things, your online shop!</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Your Rep South Africa. All rights reserved.
+    </div>
+</body>
+</html>
+

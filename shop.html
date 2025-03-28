@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanro's Little Things - Your Rep South Africa</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(to bottom, #d9c2a2, #b89f7d); /* Soft brown gradient */
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background-color: #8B4513; /* Top navigation background color (brown) */
+            color: white;
+            padding: 10px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center content */
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hanro's Header */
+        .header { 
+            background-color: #f5deb3; 
+            padding: 20px; 
+            font-size: 36px; /* Increased header size */
+            font-weight: bold;
+            margin-top: 60px; /* Space below the top nav */
+            display: flex; /* Use flexbox for layout */
+            justify-content: space-between; /* Space between logo and search bar */
+            align-items: center; /* Align items vertically */
+        }
+
+        /* Hanro's Logo */
+        .hanro-logo {
+            margin-right: 10px; /* Space between image and heading */
+            width: 120px; /* Increased size */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Sidebar Navigation */
+        .menu {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu img {
+            width: 40px;
+            height: 40px;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            transition: left 0.3s;
+            z-index: 1001;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Shop Content */
+        .shop-content {
+            margin-top: 20px; /* Adjusted for fixed header */
+            padding: 20px;
+        }
+        .shop-content img {
+            width: auto; 
+            height: auto; 
+            max-width: 100%; /* Responsive image */
+            border-radius: 10px; /* Rounded corners */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+        }
+        .shop-content img:hover {
+            transform: scale(1.05); /* Scale up image on hover */
+        }
+        .shop-button {
+            display: inline-block;
+            margin-top: 15px; /* Space above the button */
+            padding: 10px 20px; /* Button padding */
+            background-color: blue; /* Button color */
+            color: white; /* Text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 16px; /* Font size */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+        }
+        .shop-button:hover {
+            background-color: darkblue; /* Darker blue on hover */
+            transform: scale(1.05); /* Scale up button on hover */
+        }
+
+        /* Social Media Buttons */
+        .social-buttons {
+            margin-top: 20px; /* Space above the buttons */
+        }
+        .social-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 12px 24px;
+            background-color: #8B4513; /* Brown button color */
+            color: white; /* Text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            font-size: 18px; /* Font size */
+            transition: transform 0.3s; /* Smooth transition for scaling */
+        }
+        .social-button:hover {
+            transform: scale(1.05); /* Pop-out effect on hover */
+            background-color: #5C3A0D; /* Darker shade on hover */
+        }
+
+        /* Search Box */
+        .search-container {
+            margin-left: auto; /* Aligns search bar to the far right */
+            margin-right: 20px; /* Right margin for spacing */
+            display: flex; /* Flexbox for alignment */
+            align-items: center; /* Center align items vertically */
+        }
+        .search-container input {
+            padding: 10px;
+            font-size: 16; /* Increased font size */
+            border-radius: 20px; /* Rounded edges */
+            border: 1px solid #ccc; /* Light border */
+            width: 200px; /* Adjusted width */
+        }
+        .search-container button {
+            padding: 10px 15px;
+            font-size: 16; /* Increased font size */
+            border-radius: 20px; /* Rounded edges for button */
+            border: none;
+            background-color: #2e8b57; /* Button color */
+            color: white; /* Text color */
+            cursor: pointer; /* Pointer cursor */
+            margin-left: 10px; /* Space between input and button */
+        }
+        .search-container button:hover {
+            background-color: #245d45; /* Darker shade on hover */
+        }
+
+        /* Contact Section */
+        .contact {
+            margin-top: 20px;
+            font-size: 18px;
+            background-color: #2e8b57; /* Light dark green */
+            padding: 15px;
+            border-radius: 10px;
+            color: white;
+            display: inline-block;
+        }
+        .contact a { 
+            color: yellow; 
+            font-weight: bold; 
+            text-decoration: none; 
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333; /* Dark background */
+            color: white; /* White text */
+            padding: 10px; /* Padding */
+            width: 100%; /* Full width */
+            text-align: center; /* Centered text */
+            margin-top: 20px; /* Space above the footer */
+        }
+		
+		/* Note Message */
+        .note-message {
+            color: red; /* Red color for visibility */
+            font-weight: bold; /* Bold text */
+            margin-top: 20px; /* Space above the note */
+        }
+    </style>
+    <script>
+        function toggleMenu() {
+            let sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu" onclick="toggleMenu()">
+        <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot 2025-03-27 143455.png" alt="Menu">
+    </div>
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+    </div>
+
+    <!-- Hanro's Header -->
+    <div class="header">
+        <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot_2025-01-05_135939.avif" alt="Hanro's Logo" class="hanro-logo"> <!-- Replace with the correct path -->
+        <span>Hanro's Little Things</span>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search this page">
+            <button onclick="searchContent()">Search</button>
+        </div>
+    </div>
+  
+ <!-- Social Media Buttons -->
+    <div class="social-buttons">
+        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
+        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
+        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
+        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    </div>
+
+    <!-- Shop Content -->
+    <div class="shop-content">
+        <p style="margin-top: 0;">Welcome to Hanro's Little Things! Explore our unique collection of items.</p> <!-- Remove margin for no space -->
+        <a href="https://hanroslittlethings.com/" target="_blank"> <!-- Replace with your actual shop link -->
+            <img src="C:\Users\Harno Zweers\OneDrive\Desktop\New Business Ideas\Images\Screenshot_2025-01-05_135939.avif" alt="Shop Image">
+        </a>
+        <br>
+        <a href="https://hanroslittlethings.com/" target="_blank" class="shop-button">Click here to view shop</a>
+    </div>
+
+	<!-- Contact Section -->
+    <div class="contact">
+        <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
+    </div>
+    
+	<!-- Please Note Message -->
+    <div class="note-message">
+        Please note that delivery can take 7 to 14 business days.
+    </div>
+	
+	<!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Your Rep South Africa. All rights reserved.
+    </div>
+</body>
+</html>
+
