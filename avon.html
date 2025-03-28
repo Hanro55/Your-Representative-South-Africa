@@ -24,6 +24,7 @@
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
+            flex-wrap: wrap; /* Wrap links for smaller screens */
         }
         .top-nav a {
             color: white;
@@ -39,11 +40,11 @@
         .header { 
             background-color: pink; 
             padding: 20px; 
-            font-size: 36px; /* Increased header size */
+            font-size: 2rem; /* Responsive font size */
             font-weight: bold;
             margin-top: 60px; /* Space below the top nav */
             display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space between logo and search bar */
+            justify-content: center; /* Center content */
             align-items: center; /* Align items vertically */
         }
 
@@ -204,6 +205,26 @@
             font-weight: bold; /* Bold text */
             margin-top: 20px; /* Space above the note */
         }
+
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 1.5rem; /* Smaller font size for mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 0 10px; /* Reduced margin */
+            }
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 10px 20px; /* Adjusted padding for mobile */
+            }
+        }
     </style>
     <script>
         function searchContent() {
@@ -270,7 +291,7 @@
         <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
         <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
         <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
-        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0 target="_blank" class="social-button">Instagram</a>
+        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
     </div>
 
     <!-- PDF Section -->
@@ -305,4 +326,3 @@
     </div>
 </body>
 </html>
-
