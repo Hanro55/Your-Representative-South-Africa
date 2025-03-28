@@ -18,12 +18,11 @@
             background-color: #8B4513; /* Top navigation background color (brown) */
             color: white;
             padding: 10px;
-            position: fixed;
-            top: 0;
             width: 100%;
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
+            position: relative; /* Changed to relative to avoid overlap */
         }
         .top-nav a {
             color: white;
@@ -39,12 +38,13 @@
         .header { 
             background-color: #f5deb3; 
             padding: 20px; 
-            font-size: 36px; /* Increased header size */
+            font-size: 28px; /* Default smaller header size for mobile */
             font-weight: bold;
-            margin-top: 60px; /* Space below the top nav */
+            margin-top: 10px; /* Reduced margin to avoid excessive space */
             display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space between logo and search bar */
+            justify-content: center; /* Center content */
             align-items: center; /* Align items vertically */
+            flex-wrap: wrap; /* Allow wrapping for mobile */
         }
 
         /* Hanro's Logo */
@@ -90,7 +90,7 @@
 
         /* Shop Content */
         .shop-content {
-            margin-top: 20px; /* Adjusted for fixed header */
+            margin-top: 20px; /* Space below header */
             padding: 20px;
         }
         .shop-content img {
@@ -148,14 +148,14 @@
         }
         .search-container input {
             padding: 10px;
-            font-size: 16; /* Increased font size */
+            font-size: 16px; /* Increased font size */
             border-radius: 20px; /* Rounded edges */
             border: 1px solid #ccc; /* Light border */
             width: 200px; /* Adjusted width */
         }
         .search-container button {
             padding: 10px 15px;
-            font-size: 16; /* Increased font size */
+            font-size: 16px; /* Increased font size */
             border-radius: 20px; /* Rounded edges for button */
             border: none;
             background-color: #2e8b57; /* Button color */
@@ -199,8 +199,54 @@
             font-weight: bold; /* Bold text */
             margin-top: 20px; /* Space above the note */
         }
+
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 28px; /* Smaller header size for mobile */
+                margin-top: 60px; /* Add space below the fixed top nav */
+                justify-content: center; /* Center content */
+                flex-wrap: wrap; /* Allow wrapping for mobile */
+            }
+            .top-nav {
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 5px 0; /* Reduced margin for better spacing */
+            }
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 10px 20px; /* Adjusted padding for mobile */
+            }
+        }
     </style>
     <script>
+        function searchContent() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let contentDiv = document.getElementById('content');
+            let contentHTML = contentDiv.innerHTML;
+            
+            // Remove previous highlights
+            contentHTML = contentHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+            
+            let regex = new RegExp(input, 'gi');
+            let matches = contentHTML.match(regex);
+            
+            if (matches) {
+                contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+                contentDiv.innerHTML = contentHTML;
+            } else {
+                alert('Text not found.');
+            }
+        }
+
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');
             if (sidebar.style.left === "0px") {
@@ -242,7 +288,7 @@
         </div>
     </div>
   
- <!-- Social Media Buttons -->
+    <!-- Social Media Buttons -->
     <div class="social-buttons">
         <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
         <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
@@ -251,7 +297,7 @@
     </div>
 
     <!-- Shop Content -->
-    <div class="shop-content">
+    <div class="shop-content" id="content">
         <p style="margin-top: 0;">Welcome to Hanro's Little Things! Explore our unique collection of items.</p> <!-- Remove margin for no space -->
         <a href="https://hanroslittlethings.com/" target="_blank"> <!-- Replace with your actual shop link -->
             <img src="Images/Screenshot_2025-01-05_135939.avif" alt="Shop Image">
@@ -260,20 +306,19 @@
         <a href="https://hanroslittlethings.com/" target="_blank" class="shop-button">Click here to view shop</a>
     </div>
 
-	<!-- Contact Section -->
+    <!-- Contact Section -->
     <div class="contact">
         <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
     </div>
     
-	<!-- Please Note Message -->
+    <!-- Please Note Message -->
     <div class="note-message">
         Please note that delivery can take 7 to 14 business days.
     </div>
-	
-	<!-- Footer -->
+    
+    <!-- Footer -->
     <div class="footer">
         &copy; 2025 Your Rep South Africa. All rights reserved.
     </div>
 </body>
 </html>
-
