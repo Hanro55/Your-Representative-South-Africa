@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <style>
         body { 
             font-family: Arial, sans-serif; 
+            text-align: center; 
             margin: 0; 
             padding: 0; 
             background: linear-gradient(to bottom, #ffe6f2, #ffb3d9); /* Soft pink gradient */
@@ -17,19 +18,18 @@
             background-color: #ff4081; /* Top navigation background color */
             color: white;
             padding: 10px;
-            position: fixed;
-            top: 0;
             width: 100%;
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
             flex-wrap: wrap; /* Wrap links for smaller screens */
+            position: relative; /* Changed to relative to avoid overlap */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 10px; /* Reduced margin for better spacing on mobile */
+            font-size: 16px; /* Slightly smaller font size for mobile */
         }
         .top-nav a:hover {
             text-decoration: underline;
@@ -37,14 +37,15 @@
 
         /* Avon Header */
         .header { 
-            background-color: pink; 
+            background-color: lightpink; 
             padding: 20px; 
-            font-size: 2rem; /* Responsive font size */
+            font-size: 28px; /* Default smaller header size for mobile */
             font-weight: bold;
-            margin-top: 60px; /* Space below the top nav */
+            margin-top: 10px; /* Reduced margin to avoid excessive space */
             display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Align items with space between */
+            justify-content: center; /* Center content */
             align-items: center; /* Align items vertically */
+            flex-wrap: wrap; /* Allow wrapping for mobile */
         }
 
         /* Avon Logo */
@@ -90,13 +91,13 @@
 
         /* Main Content */
         .content {
-            margin-top: 20px; /* Space below header */
+            margin-top: 140px; /* Adjusted for header and top nav */
             padding: 20px;
-            text-align: center; /* Center text */
         }
 
         /* Search Box */
         .search-container {
+            margin-left: auto; /* Aligns search bar to the far right */
             display: flex; /* Flexbox for alignment */
             align-items: center; /* Center align items vertically */
             justify-content: center; /* Center align items horizontally */
@@ -219,11 +220,16 @@
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
-                font-size: 1.5rem; /* Smaller font size for mobile */
+                font-size: 28px; /* Smaller header size for mobile */
+                margin-top: 60px; /* Add space below the fixed top nav */
+            }
+            .top-nav {
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
             }
             .top-nav a {
                 font-size: 14px; /* Smaller font size for mobile */
-                margin: 0 10px; /* Reduced margin */
+                margin: 5px 0; /* Reduced margin for better spacing */
             }
             .social-button {
                 font-size: 14px; /* Smaller button font size for mobile */
@@ -284,8 +290,10 @@
 
     <!-- Avon Header -->
     <div class="header">
-        <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
-        <span>Avon</span>
+        <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+            <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
+            <span>Avon</span>
+        </div>
         <div class="search-container">
             <input type="text" id="search" placeholder="Search this page">
             <button onclick="searchContent()">Search</button>
