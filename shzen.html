@@ -10,8 +10,20 @@
             text-align: center; 
             margin: 0; 
             padding: 0; 
-            padding-top: 120px; /* Add padding to the top to ensure content is below the fixed nav */
             background: linear-gradient(to bottom, #d9fdd9, #a2e0a2); /* Soft green gradient */
+        }
+
+        /* Header */
+        .header { 
+            background-color: lightgreen; 
+            padding: 20px; 
+            font-size: 36px; /* Increased header size */
+            font-weight: bold;
+            display: flex; /* Use flexbox for layout */
+            justify-content: center; /* Center content */
+            align-items: center; /* Align items vertically */
+            flex-direction: column; /* Stack items vertically */
+            margin-bottom: 10px; /* Space below header */
         }
 
         /* Top Navigation Bar */
@@ -19,14 +31,12 @@
             background-color: #00796b; /* Top navigation background color */
             color: white;
             padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
             flex-wrap: wrap; /* Wrap links for smaller screens */
+            position: relative; /* Position relative for mobile menu */
         }
+
         .top-nav a {
             color: white;
             text-decoration: none;
@@ -37,36 +47,17 @@
             text-decoration: underline;
         }
 
-        /* Sh'Zen Header */
-        .header { 
-            background-color: lightgreen; 
-            padding: 20px; 
-            font-size: 36px; /* Increased header size */
-            font-weight: bold;
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space between logo and search bar */
-            align-items: center; /* Align items vertically */
-        }
-
-        /* Sh'Zen Logo */
-        .shzen-logo {
-            margin-right: 10px; /* Space between image and heading */
-            width: 120px; /* Increased size */
-            height: auto; /* Maintain aspect ratio */
-        }
-
-        /* Sidebar Navigation */
+        /* Hamburger Menu */
         .menu {
-            position: fixed;
-            top: 15px;
-            left: 20px;
+            display: none; /* Hide by default */
             cursor: pointer;
-            z-index: 1001;
         }
         .menu img {
             width: 40px;
             height: 40px;
         }
+
+        /* Sidebar Navigation */
         .sidebar {
             position: fixed;
             left: -250px;
@@ -92,13 +83,15 @@
         /* Main Content */
         .content {
             padding: 20px;
+            margin-top: 20px; /* Space below nav */
         }
 
         /* Search Box */
         .search-container {
-            margin-left: auto; /* Aligns search bar to the far right */
             display: flex; /* Flexbox for alignment */
+            justify-content: center; /* Center align items horizontally */
             align-items: center; /* Center align items vertically */
+            margin-top: 10px; /* Space above search container */
         }
         .search-container input {
             padding: 10px;
@@ -194,34 +187,34 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column; /* Stack logo and heading */
-                align-items: center; /* Center align items vertically */
-                font-size: 28px; /* Smaller header size */
+            .menu {
+                display: block; /* Show hamburger menu on mobile */
             }
             .top-nav {
-                flex-direction: column; /* Stack nav links */
-                align-items: center; /* Center items in mobile */
+                display: none; /* Hide the normal nav bar on mobile */
             }
-            .top-nav a {
-                font-size: 14px; /* Smaller font size for mobile */
-                margin: 5px 0; /* Reduced margin for better spacing */
+            .sidebar {
+                display: block; /* Display sidebar */
+                position: fixed; /* Fixed position */
+                left: 0; /* Start from left */
+                top: 0; /* Align to top */
+                width: 100%; /* Full width on mobile */
+                height: 100%; /* Full height on mobile */
             }
-            .shzen-logo {
-                width: 80px; /* Decreased logo size for mobile */
+            .header {
+                font-size: 28px; /* Smaller header size */
             }
-            .social-button {
-                font-size: 14px; /* Smaller button font size for mobile */
-                padding: 10px 20px; /* Adjusted padding for mobile */
+            .search-container input {
+                width: 80%; /* Full width for mobile */
+                margin-bottom: 10px; /* Space below input */
             }
             .search-container {
                 flex-direction: column; /* Stack search input and button */
                 align-items: center; /* Center items vertically */
-                margin-top: 10px; /* Space above search container */
             }
-            .search-container input {
-                width: 90%; /* Full width for mobile */
-                margin-bottom: 10px; /* Space below input */
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 10px 20px; /* Adjusted padding for mobile */
             }
         }
     </style>
@@ -256,9 +249,23 @@
     </script>
 </head>
 <body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen Logo" class="shzen-logo"> <!-- Replace with the correct path -->
+            <span>Sh'Zen</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search this page">
+            <button onclick="searchContent()">Search</button>
+        </div>
+    </div>
+
+    <!-- Hamburger Menu -->
     <div class="menu" onclick="toggleMenu()">
         <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
     </div>
+
+    <!-- Sidebar Navigation -->
     <div class="sidebar" id="sidebar">
         <a href="index.html">Home</a>
         <a href="avon.html">Avon</a>
@@ -274,18 +281,6 @@
         <a href="shzen.html">Sh'Zen</a>
         <a href="tablecharm.html">Table Charm</a>
         <a href="shop.html">Hanro's Little Things</a>
-    </div>
-
-    <!-- Sh'Zen Header -->
-    <div class="header">
-        <div style="display: flex; align-items: center;">
-            <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen Logo" class="shzen-logo"> <!-- Replace with the correct path -->
-            <span>Sh'Zen</span>
-        </div>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search this page">
-            <button onclick="searchContent()">Search</button>
-        </div>
     </div>
 
     <!-- Social Media Buttons -->
