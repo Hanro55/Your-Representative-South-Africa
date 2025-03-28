@@ -187,6 +187,11 @@
             font-weight: bold; /* Bold text */
             margin-top: 20px; /* Space above the note */
         }
+
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
     </style>
     <script>
         function searchContent() {
@@ -207,6 +212,7 @@
                 alert('Text not found.');
             }
         }
+
         function toggleMenu() {
             let sidebar = document.getElementById('sidebar');
             if (sidebar.style.left === "0px") {
@@ -259,7 +265,7 @@
     <!-- PDF Section -->
     <div class="pdf-container">
         <p><strong><u>Click below to view the latest Sh'zen brochure:</u></strong></p> <!-- Bold and underlined -->
-        <a href ="PDF/Sh'Zen_MarchHD-compressed.pdf" target="_blank" class="view-pdf-button">Click here</a>
+        <a href="PDF/Sh'Zen_MarchHD-compressed.pdf" target="_blank" class="view-pdf-button">Click here</a>
     </div>
 
     <!-- Content -->
