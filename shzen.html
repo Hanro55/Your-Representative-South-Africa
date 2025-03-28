@@ -39,12 +39,13 @@
         .header { 
             background-color: lightgreen; 
             padding: 20px; 
-            font-size: 36px; /* Increased header size */
+            font-size: 28px; /* Default smaller header size for mobile */
             font-weight: bold;
             margin-top: 10px; /* Reduced margin to avoid excessive space */
             display: flex; /* Use flexbox for layout */
             justify-content: center; /* Center content */
             align-items: center; /* Align items vertically */
+            flex-wrap: wrap; /* Allow wrapping for mobile */
         }
 
         /* Sh'Zen Logo */
@@ -52,6 +53,13 @@
             margin-right: 10px; /* Space between image and heading */
             width: 120px; /* Increased size */
             height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Responsive Header Font Size */
+        @media (min-width: 768px) {
+            .header {
+                font-size: 36px; /* Larger font size for larger screens */
+            }
         }
 
         /* Sidebar Navigation */
@@ -195,6 +203,7 @@
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
+                font-size: 28px; /* Smaller header size for mobile */
                 margin-top: 60px; /* Add space below the fixed top nav */
             }
             .top-nav {
@@ -264,7 +273,7 @@
 
     <!-- Sh'Zen Header -->
     <div class="header">
-        <div style="display: flex; align-items: center;">
+        <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
             <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen Logo" class="shzen-logo"> <!-- Replace with the correct path -->
             <span>Sh'Zen</span>
         </div>
