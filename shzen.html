@@ -23,14 +23,13 @@
             width: 100%;
             z-index: 1000;
             display: flex; /* Flexbox for layout */
-            justify-content: space-around; /* Space between links */
-            flex-wrap: wrap; /* Wrap links for smaller screens */
+            justify-content: center; /* Center content */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px; /* Reduced margin for better spacing on mobile */
-            font-size: 16px; /* Slightly smaller font size */
+            margin: 0 15px;
+            font-size: 18px;
         }
         .top-nav a:hover {
             text-decoration: underline;
@@ -40,17 +39,17 @@
         .header { 
             background-color: lightgreen; 
             padding: 20px; 
-            font-size: 2rem; /* Responsive font size */
+            font-size: 36px; /* Increased header size */
             font-weight: bold;
             margin-top: 60px; /* Space below the top nav */
             display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Stack elements vertically */
-            align-items: center; /* Center items horizontally */
+            justify-content: space-between; /* Space between logo and search bar */
+            align-items: center; /* Align items vertically */
         }
 
         /* Sh'Zen Logo */
         .shzen-logo {
-            margin-bottom: 10px; /* Space below the logo */
+            margin-right: 10px; /* Space between image and heading */
             width: 120px; /* Increased size */
             height: auto; /* Maintain aspect ratio */
         }
@@ -97,7 +96,7 @@
 
         /* Search Box */
         .search-container {
-            margin-top: 10px; /* Added margin for spacing */
+            margin-left: auto; /* Aligns search bar to the far right */
             display: flex; /* Flexbox for alignment */
             align-items: center; /* Center align items vertically */
         }
@@ -106,7 +105,7 @@
             font-size: 16px;
             border-radius: 20px; /* Rounded edges */
             border: 1px solid #ccc;
-            width: 150px; /* Adjusted width for mobile */
+            width: 200px; /* Adjusted width */
         }
         .search-container button {
             padding: 10px 15px;
@@ -188,16 +187,20 @@
             margin-top: 20px; /* Space above the note */
         }
 
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
-                font-size: 1.5rem; /* Smaller font size for mobile */
+                flex-direction: column; /* Stack items vertically */
+                align-items: flex-start; /* Align items to the left */
             }
             .top-nav a {
                 font-size: 14px; /* Smaller font size for mobile */
-            }
-            .search-container input {
-                width: 100px; /* Reduced width for mobile */
+                margin: 0 5px; /* Reduced margin */
             }
             .social-button {
                 font-size: 14px; /* Smaller button font size for mobile */
@@ -295,7 +298,7 @@
         Please note that delivery can take 7 to 14 business days.
     </div>
     
-	 <!-- Footer -->
+	<!-- Footer -->
     <div class="footer">
         &copy; 2025 Your Rep South Africa. All rights reserved.
     </div>
