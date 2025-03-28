@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -91,7 +91,7 @@
 
         /* Main Content */
         .content {
-            margin-top: 140px; /* Adjusted for header and top nav */
+            margin-top: 20px; /* Adjusted for spacing */
             padding: 20px;
         }
 
@@ -145,16 +145,17 @@
             margin: 20px 0; /* Space above and below social buttons */
             display: flex; /* Flexbox for alignment */
             justify-content: center; /* Center align social buttons */
+            flex-wrap: wrap; /* Allow wrapping for mobile */
         }
         .social-button {
             display: inline-block;
-            margin: 10px;
-            padding: 12px 24px;
+            margin: 5px; /* Reduced margin for better spacing on mobile */
+            padding: 10px 15px; /* Adjusted padding for mobile */
             background-color: #ff4081; /* Button color */
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 16px; /* Adjusted font size for better visibility */
             transition: transform 0.3s; /* Add transition for pop-out effect */
         }
         .social-button:hover {
@@ -233,7 +234,7 @@
             }
             .social-button {
                 font-size: 14px; /* Smaller button font size for mobile */
-                padding: 10px 20px; /* Adjusted padding for mobile */
+                padding: 8px 12px; /* Adjusted padding for mobile */
             }
         }
     </style>
@@ -242,13 +243,13 @@
             let input = document.getElementById('search').value.toLowerCase();
             let contentDiv = document.getElementById('content');
             let contentHTML = contentDiv.innerHTML;
-            
+
             // Remove previous highlights
             contentHTML = contentHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
-            
+
             let regex = new RegExp(input, 'gi');
             let matches = contentHTML.match(regex);
-            
+
             if (matches) {
                 contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
                 contentDiv.innerHTML = contentHTML;
@@ -300,15 +301,16 @@
         </div>
     </div>
 
+    <!-- Social Media Buttons -->
+    <div class="social-buttons">
+        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
+        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
+        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
+        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    </div>
+
     <!-- Main Content -->
     <div class="content">
-        <div class="social-buttons">
-            <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
-            <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
-            <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
-            <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
-        </div>
-
         <div class="pdf-container">
             <p><strong><u>Click below to view the latest Avon brochure:</u></strong></p>
             <a href="PDF/AvonBrochureMarch2025-compressed (1).pdf" target="_blank" class="view-pdf-button">Click here</a>
