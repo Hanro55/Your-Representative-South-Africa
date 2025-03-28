@@ -18,18 +18,17 @@
             background-color: #ff4081; /* Top navigation background color */
             color: white;
             padding: 10px;
+            position: relative; /* Changed from fixed to relative */
             width: 100%;
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
-            flex-wrap: wrap; /* Wrap links for smaller screens */
-            position: relative; /* Changed to relative to avoid overlap */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 10px; /* Reduced margin for better spacing on mobile */
-            font-size: 16px; /* Slightly smaller font size for mobile */
+            margin: 0 15px;
+            font-size: 18px;
         }
         .top-nav a:hover {
             text-decoration: underline;
@@ -39,19 +38,18 @@
         .header { 
             background-color: lightpink; 
             padding: 20px; 
-            font-size: 28px; /* Default smaller header size for mobile */
+            font-size: 28px; /* Adjusted font size for better mobile fit */
             font-weight: bold;
-            margin-top: 10px; /* Reduced margin to avoid excessive space */
+            margin-top: 20px; /* Space below the top nav */
             display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center content */
-            align-items: center; /* Align items vertically */
-            flex-wrap: wrap; /* Allow wrapping for mobile */
+            flex-direction: column; /* Stack elements vertically on mobile */
+            align-items: center; /* Center items */
         }
 
         /* Avon Logo */
         .avon-logo {
-            margin-right: 10px; /* Space between image and heading */
-            width: 120px; /* Increased size */
+            margin-bottom: 10px; /* Space below the logo */
+            width: 150px; /* Adjusted size for better mobile visibility */
             height: auto; /* Maintain aspect ratio */
         }
 
@@ -91,17 +89,16 @@
 
         /* Main Content */
         .content {
-            margin-top: 20px; /* Adjusted for spacing */
+            margin-top: 100px; /* Adjusted for fixed header */
             padding: 20px;
         }
 
         /* Search Box */
         .search-container {
-            margin-left: auto; /* Aligns search bar to the far right */
+            margin-top: 10px; /* Space above the search bar */
             display: flex; /* Flexbox for alignment */
-            align-items: center; /* Center align items vertically */
             justify-content: center; /* Center align items horizontally */
-            margin-bottom: 20px; /* Space below search bar */
+            align-items: center; /* Center align items vertically */
         }
         .search-container input {
             padding: 10px;
@@ -149,13 +146,13 @@
         }
         .social-button {
             display: inline-block;
-            margin: 5px; /* Reduced margin for better spacing on mobile */
-            padding: 10px 15px; /* Adjusted padding for mobile */
+            margin: 10px; /* Reduced margin for better spacing on mobile */
+            padding: 12px 24px;
             background-color: #ff4081; /* Button color */
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 16px; /* Adjusted font size for better visibility */
+            font-size: 18px;
             transition: transform 0.3s; /* Add transition for pop-out effect */
         }
         .social-button:hover {
@@ -177,23 +174,6 @@
             color: yellow; 
             font-weight: bold; 
             text-decoration: none; 
-        }
-
-        /* Shop Online Button */
-        .shop-online-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 24px;
-            background-color: #ff4081; /* Button color */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 20px;
-            transition: transform 0.3s; /* Add transition for pop-out effect */
-        }
-        .shop-online-button:hover {
-            transform: scale(1.05); /* Pop-out effect on hover */
-            background-color: #d81b60; /* Darker shade on hover */
         }
 
         /* Footer */
@@ -221,8 +201,19 @@
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
-                font-size: 28px; /* Smaller header size for mobile */
-                margin-top: 60px; /* Add space below the fixed top nav */
+                font-size: 24px; /* Smaller header size for mobile */
+                margin-top: 20px; /* Space below the top nav */
+            }
+            .avon-logo {
+                width: 120px; /* Adjusted size for better mobile visibility */
+            }
+            .search-container {
+                flex-direction: column; /* Stack search elements on mobile */
+                align-items: center; /* Center items */
+            }
+            .search-container input {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 10px; /* Space below input */
             }
             .top-nav {
                 flex-direction: column; /* Stack nav links */
@@ -291,10 +282,8 @@
 
     <!-- Avon Header -->
     <div class="header">
-        <div style="display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
-            <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
-            <span>Avon</span>
-        </div>
+        <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
+        <span>Avon</span>
         <div class="search-container">
             <input type="text" id="search" placeholder="Search this page">
             <button onclick="searchContent()">Search</button>
@@ -309,24 +298,25 @@
         <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
     </div>
 
-    <!-- Main Content -->
-    <div class="content">
-        <div class="pdf-container">
-            <p><strong><u>Click below to view the latest Avon brochure:</u></strong></p>
-            <a href="PDF/AvonBrochureMarch2025-compressed (1).pdf" target="_blank" class="view-pdf-button">Click here</a>
-        </div>
+    <!-- PDF Section -->
+    <div class="pdf-container">
+        <p><strong><u>Click below to view the latest Avon brochure:</u></strong></p>
+        <a href="PDF/AvonBrochureMarch2025-compressed (1).pdf" target="_blank" class="view-pdf-button">Click here</a>
+    </div>
 
-        <div class="shop-online-container">
-            <a href="https://my.avon.co.za/search/by-product-id/?attach=26986046" target="_blank" class="shop-online-button">Click here to shop online</a>
-        </div>
+    <!-- Content -->
+    <div id="content">
+        <p>Welcome to the Avon page. Here, you can explore the latest products and offers.</p>
+    </div>
 
-        <div class="contact">
-            <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
-        </div>
+    <!-- Contact Section -->
+    <div class="contact">
+        <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
+    </div>
 
-        <div class="note-message">
-            Please note that delivery can take 7 to 14 business days.
-        </div>
+    <!-- Please Note Message -->
+    <div class="note-message">
+        Please note that delivery can take 7 to 14 business days.
     </div>
 
     <!-- Footer -->
