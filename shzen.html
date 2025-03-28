@@ -23,13 +23,14 @@
             width: 100%;
             z-index: 1000;
             display: flex; /* Flexbox for layout */
-            justify-content: center; /* Center content */
+            justify-content: space-around; /* Space between links */
+            flex-wrap: wrap; /* Wrap links for smaller screens */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 10px; /* Reduced margin for better spacing on mobile */
+            font-size: 16px; /* Slightly smaller font size */
         }
         .top-nav a:hover {
             text-decoration: underline;
@@ -39,17 +40,17 @@
         .header { 
             background-color: lightgreen; 
             padding: 20px; 
-            font-size: 36px; /* Increased header size */
+            font-size: 2rem; /* Responsive font size */
             font-weight: bold;
             margin-top: 60px; /* Space below the top nav */
             display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space between logo and search bar */
-            align-items: center; /* Align items vertically */
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items horizontally */
         }
 
         /* Sh'Zen Logo */
         .shzen-logo {
-            margin-right: 10px; /* Space between image and heading */
+            margin-bottom: 10px; /* Space below the logo */
             width: 120px; /* Increased size */
             height: auto; /* Maintain aspect ratio */
         }
@@ -96,8 +97,7 @@
 
         /* Search Box */
         .search-container {
-            margin-left: auto; /* Aligns search bar to the far right */
-            margin-right: 20px; /* Right margin for spacing */
+            margin-top: 10px; /* Added margin for spacing */
             display: flex; /* Flexbox for alignment */
             align-items: center; /* Center align items vertically */
         }
@@ -106,7 +106,7 @@
             font-size: 16px;
             border-radius: 20px; /* Rounded edges */
             border: 1px solid #ccc;
-            width: 200px; /* Adjusted width */
+            width: 150px; /* Adjusted width for mobile */
         }
         .search-container button {
             padding: 10px 15px;
@@ -188,9 +188,21 @@
             margin-top: 20px; /* Space above the note */
         }
 
-        /* Highlighted Text */
-        .highlight {
-            background-color: yellow; /* Highlight color */
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 1.5rem; /* Smaller font size for mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+            }
+            .search-container input {
+                width: 100px; /* Reduced width for mobile */
+            }
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 10px 20px; /* Adjusted padding for mobile */
+            }
         }
     </style>
     <script>
