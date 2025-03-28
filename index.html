@@ -24,6 +24,7 @@
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
+            flex-wrap: wrap; /* Wrap links for smaller screens */
         }
         .top-nav a {
             color: white;
@@ -39,12 +40,9 @@
         .header { 
             background-color: turquoise; /* Changed header background color to turquoise */
             padding: 20px; 
-            font-size: 36px; /* Increased header size */
+            font-size: 2rem; /* Responsive font size */
             font-weight: bold;
             margin-top: 60px; /* Space below the top nav */
-            display: flex; /* Use flexbox for layout */
-            justify-content: center; /* Center content */
-            align-items: center; /* Align items vertically */
         }
 
         /* Sidebar Navigation */
@@ -90,7 +88,7 @@
             color: white;
             text-decoration: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 1.1rem; /* Responsive font size */
             transition: transform 0.3s; /* Add transition for pop-out effect */
         }
         .social-button:hover {
@@ -143,11 +141,25 @@
             color: black; 
             text-decoration: none; 
             border-radius: 8px; /* More rounded corners */
-            font-size: 22px; /* Increased font size */
+            font-size: 1.1rem; /* Responsive font size */
             box-shadow: 0 4px 8px rgba(0, 0, 255, 0.6); /* Blue shadow */
         }
         .view-pdf-button:hover {
             background-color: lightblue; /* Change background on hover */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 1.5rem; /* Smaller font size for mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 0 10px; /* Reduced margin */
+            }
+            .box {
+                width: 80%; /* Full width on mobile */
+            }
         }
     </style>
     <script>
@@ -218,4 +230,3 @@
     </div>
 </body>
 </html>
-
