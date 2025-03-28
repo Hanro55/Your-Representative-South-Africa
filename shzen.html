@@ -24,12 +24,13 @@
             z-index: 1000;
             display: flex; /* Flexbox for layout */
             justify-content: center; /* Center content */
+            flex-wrap: wrap; /* Wrap links for smaller screens */
         }
         .top-nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            margin: 0 10px; /* Reduced margin for better spacing on mobile */
+            font-size: 16px; /* Slightly smaller font size for mobile */
         }
         .top-nav a:hover {
             text-decoration: underline;
@@ -198,9 +199,13 @@
                 flex-direction: column; /* Stack items vertically */
                 align-items: flex-start; /* Align items to the left */
             }
+            .top-nav {
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
+            }
             .top-nav a {
                 font-size: 14px; /* Smaller font size for mobile */
-                margin: 0 5px; /* Reduced margin */
+                margin: 5px 0; /* Reduced margin for better spacing */
             }
             .social-button {
                 font-size: 14px; /* Smaller button font size for mobile */
@@ -298,7 +303,7 @@
         Please note that delivery can take 7 to 14 business days.
     </div>
     
-	<!-- Footer -->
+	 <!-- Footer -->
     <div class="footer">
         &copy; 2025 Your Rep South Africa. All rights reserved.
     </div>
