@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avon - Your Rep South Africa</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin: 0; 
+            padding: 0; 
+            background: linear-gradient(to bottom, #ffe6f2, #ffb3d9); /* Soft pink gradient */
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            background-color: #ff4081; /* Top navigation background color */
+            color: white;
+            padding: 10px;
+            position: relative; /* Changed from fixed to relative */
+            width: 100%;
+            z-index: 1000;
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center content */
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Avon Header */
+        .header { 
+            background-color: lightpink; 
+            padding: 20px; 
+            font-size: 28px; /* Adjusted font size for better mobile fit */
+            font-weight: bold;
+            margin-top: 20px; /* Space below the top nav */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack elements vertically on mobile */
+            align-items: center; /* Center items */
+        }
+
+        /* Avon Logo */
+        .avon-logo {
+            margin-bottom: 10px; /* Space below the logo */
+            width: 150px; /* Adjusted size for better mobile visibility */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        /* Sidebar Navigation */
+        .menu {
+            position: fixed;
+            top: 15px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu img {
+            width: 40px;
+            height: 40px;
+        }
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background-color: #333;
+            padding-top: 60px;
+            transition: left 0.3s;
+            z-index: 1001;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        /* Main Content */
+        .content {
+            margin-top: 100px; /* Adjusted for fixed header */
+            padding: 20px;
+        }
+
+        /* Search Box */
+        .search-container {
+            margin-top: 10px; /* Space above the search bar */
+            display: flex; /* Flexbox for alignment */
+            justify-content: center; /* Center align items horizontally */
+            align-items: center; /* Center align items vertically */
+        }
+        .search-container input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded edges */
+            border: 1px solid #ccc;
+            width: 200px; /* Adjusted width */
+        }
+        .search-container button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 20px; /* Rounded edges for button */
+            border: none;
+            background-color: #2e8b57;
+            color: white;
+            cursor: pointer;
+            margin-left: 10px; /* Space between input and button */
+        }
+        .search-container button:hover {
+            background-color: #245d45;
+        }
+
+        /* PDF Button */
+        .view-pdf-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6); /* Pink shadow */
+        }
+        .view-pdf-button:hover {
+            background-color: lightpink; /* Change background on hover */
+        }
+
+        /* Social Media Buttons */
+        .social-buttons {
+            margin: 20px 0; /* Space above and below social buttons */
+            display: flex; /* Flexbox for alignment */
+            justify-content: center; /* Center align social buttons */
+            flex-wrap: wrap; /* Allow wrapping for mobile */
+        }
+        .social-button {
+            display: inline-block;
+            margin: 10px; /* Reduced margin for better spacing on mobile */
+            padding: 12px 24px;
+            background-color: #ff4081; /* Button color */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: transform 0.3s; /* Add transition for pop-out effect */
+        }
+        .social-button:hover {
+            transform: scale(1.05); /* Pop-out effect on hover */
+            background-color: #d81b60; /* Darker shade on hover */
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333; /* Dark background */
+            color: white; /* White text */
+            padding: 10px; /* Padding */
+            width: 100%; /* Full width */
+            text-align: center; /* Centered text */
+            margin-top: 20px; /* Space above the footer */
+        }
+
+        /* Note Message */
+        .note-message {
+            color: red; /* Red color for visibility */
+            font-weight: bold; /* Bold text */
+            margin-top: 20px; /* Space above the note */
+        }
+
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 24px; /* Smaller header size for mobile */
+                margin-top: 20px; /* Space below the top nav */
+            }
+            .avon-logo {
+                width: 120px; /* Adjusted size for better mobile visibility */
+            }
+            .search-container {
+                flex-direction: column; /* Stack search elements on mobile */
+                align-items: center; /* Center items */
+            }
+            .search-container input {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 10px; /* Space below input */
+            }
+            .top-nav {
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 5px 0; /* Reduced margin for better spacing */
+            }
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 8px 12px; /* Adjusted padding for mobile */
+            }
+        }
+    </style>
+    <script>
+        function searchContent() {
+            let input = document.getElementById('search').value.toLowerCase();
+            let contentDiv = document.getElementById('content');
+            let contentHTML = contentDiv.innerHTML;
+
+            // Remove previous highlights
+            contentHTML = contentHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+
+            let regex = new RegExp(input, 'gi');
+            let matches = contentHTML.match(regex);
+
+            if (matches) {
+                contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+                contentDiv.innerHTML = contentHTML;
+            } else {
+                alert('Text not found.');
+            }
+        }
+
+        function toggleMenu() {
+            let sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="menu" onclick="toggleMenu()">
+        <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
+    </div>
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+        <a href="Shampoos&Conditioners.html">Shampoos & Conditioners</a> <!-- Linked to new page -->
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <div class="top-nav">
+        <a href="index.html">Home</a>
+        <a href="avon.html">Avon</a>
+        <a href="shzen.html">Sh'Zen</a>
+        <a href="tablecharm.html">Table Charm</a>
+        <a href="shop.html">Hanro's Little Things</a>
+    </div>
+
+    <!-- Avon Header -->
+    <div class="header">
+        <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
+        <span>Shampoos & Conditioners</span>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search this page">
+            <button onclick="searchContent()">Search</button>
+        </div>
+    </div>
+
+    <!-- Social Media Buttons -->
+    <div class="social-buttons">
+        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
+        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
+        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
+        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    </div>
+
+    <!-- Please Note Message -->
+    <div class="note-message">
+        Please note that delivery can take 7 to 14 business days.
+    </div>
+
+    <!-- Content -->
+    <div id="content">
+        <p>Explore our range of shampoos and conditioners designed for all hair types.</p>
+        
+        <!-- Advance Techniques Ultimate Shine Shampoo Section -->
+        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
+            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
+                <img src="Images/Advance Techniques Ultimate Shine Shampoo.png" alt="Advance Techniques Ultimate Shine Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
+            </div>
+            <div class="product-description" style="text-align: left;">
+                <u><h2 style="font-size: 24px;">Advance Techniques Ultimate Shine Shampoo</h2></u>
+                <p>Transform dry, dull hair into a radiant, glossy hair with this salt and paraben-free shampoo. Infused with shine-enhancing Crystal Light Technology, it gently cleanses without stripping natural oils, leaving your hair smooth and vibrant from the very first wash.</p>
+                <strong>Key Features:</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Gentle daily cleanser suitable for all hair types</li>
+                    <li>Formulated with Crystal Light Technology for maximum shine</li>
+                    <li>Salt and paraben-free</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Advance Techniques Absolute Nourishment Shampoo Section -->
+        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
+            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
+                <img src="Images/Advance Techniques Absolute Nourishment Shampoo.png" alt="Advance Techniques Absolute Nourishment Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
+            </div>
+            <div class="product-description" style="text-align: left;">
+                <u><h2 style="font-size: 24px;">Advance Techniques Absolute Nourishment Shampoo</h2></u>
+                <p>Revitalize your hair with this enriching shampoo, formulated with a special blend of argan, coconut, and marula oils. It cleanses while providing deep nourishment, making it a perfect addition to your everyday hair care routine.</p>
+                <strong>Key Features:</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Contains nourishing argan, coconut, and marula oils</li>
+                    <li>Suitable for everyday use</li>
+                    <li>Dermatologically tested</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Advance Techniques Reconstruction Shampoo Section -->
+        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
+            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
+                <img src="Images/Advance Techniques Reconstruction Shampoo.png" alt="Advance Techniques Absolute Nourishment Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
+            </div>
+            <div class="product-description" style="text-align: left;">
+                <u><h2 style="font-size: 24px;">Advance Techniques Reconstruction Shampoo</h2></u>
+                <p>Revitalize damaged hair from roots to tips with Advance Techniques Reconstruction Shampoo. Formulated with Kera Construct-Panthenol Complex, this shampoo provides a protective coating to nourish and strengthen your hair, reducing split ends and breakage. Use it whenever your hair needs a restorative boost.</p>
+                <strong>Key Features:</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Ideal for dry and damaged hair</li>
+                    <li>Helps repair dull and breaking locks</li>
+                    <li>Kera Construct-Panthenol Complex minimizes the risk of further breakage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        &copy; 2025 Your Rep South Africa. All rights reserved.
+    </div>
+</body>
+</html>
