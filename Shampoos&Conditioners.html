@@ -136,6 +136,22 @@
         .view-pdf-button:hover {
             background-color: lightpink; /* Change background on hover */
         }
+		
+		/* Shop Button */
+        .shop-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 24px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 20px;
+            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6); /* Pink shadow */
+        }
+        .shop-button:hover {
+            background-color: lightpink; /* Change background on hover */
+        }
 
         /* Social Media Buttons */
         .social-buttons {
@@ -182,6 +198,58 @@
             background-color: yellow; /* Highlight color */
         }
 
+        /* Product Section */
+        .product-section {
+            display: flex; 
+            flex-direction: column; /* Stack image and description */
+            align-items: center; 
+            margin-top: 30px;
+            background-color: White; /* Light pink background for product section */
+            border-radius: 15px; /* Rounded edges */
+            padding: 15px; /* Padding inside the background */
+            width: calc(100% - 1cm); /* Full width minus 1 cm for both sides */
+            margin-left: 0.5cm; /* Offset to the left */
+            margin-right: 0.5cm; /* Offset to the right */
+        }
+        .product-image {
+            flex: 0 0 auto; 
+            margin-bottom: 10px; /* Space between image and description */
+        }
+        .product-description {
+            text-align: left;
+            width: 100%; /* Allow description to take full width */
+        }
+        .product-description h2 {
+            color: #ff4081; /* Pink color for product headings */
+        }
+
+        /* Search Results Section */
+        .search-results {
+            position: absolute;
+            top: 100px; /* Position below header */
+            right: 20px; /* Align to the right */
+            background-color: white; /* White background for results */
+            border: 1px solid #ccc; /* Border for results box */
+            padding: 10px; /* Padding */
+            width: 200px; /* Fixed width */
+            display: none; /* Hidden by default */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow */
+            z-index: 1002; /* Ensure it appears above other elements */
+        }
+        .search-results p {
+            margin: 0; /* Remove default margin */
+            font-size: 14px; /* Font size for results */
+        }
+        .search-results a {
+            display: block; /* Each result on a new line */
+            color: #ff4081; /* Link color */
+            text-decoration: none; /* Remove underline */
+            margin: 5px 0; /* Space between results */
+        }
+        .search-results a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header {
@@ -214,6 +282,8 @@
         }
     </style>
     <script>
+        let searchIndex = []; // Store search results
+
         function searchContent() {
             let input = document.getElementById('search').value.toLowerCase();
             let contentDiv = document.getElementById('content');
@@ -224,13 +294,45 @@
 
             let regex = new RegExp(input, 'gi');
             let matches = contentHTML.match(regex);
+            searchIndex = []; // Reset search index
 
             if (matches) {
+                // Highlight matches in content
                 contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
                 contentDiv.innerHTML = contentHTML;
+
+                // Find and store the matched elements for displaying in the results
+                let productSections = document.querySelectorAll('.product-section');
+                productSections.forEach((section, index) => {
+                    if (section.innerText.toLowerCase().includes(input)) {
+                        searchIndex.push({ title: section.querySelector('h2').innerText, index: index });
+                    }
+                });
+
+                displaySearchResults();
             } else {
                 alert('Text not found.');
             }
+        }
+
+        function displaySearchResults() {
+            let resultsDiv = document.getElementById('search-results');
+            resultsDiv.innerHTML = ''; // Clear previous results
+
+            if (searchIndex.length > 0) {
+                resultsDiv.style.display = 'block'; // Show results div
+                resultsDiv.innerHTML += `<p>Found ${searchIndex.length} result(s):</p>`;
+                searchIndex.forEach(result => {
+                    resultsDiv.innerHTML += `<a href="#" onclick="jumpToResult(${result.index})">${result.title}</a>`;
+                });
+            } else {
+                resultsDiv.style.display = 'none'; // Hide if no results
+            }
+        }
+
+        function jumpToResult(index) {
+            let productSections = document.querySelectorAll('.product-section');
+            productSections[index].scrollIntoView({ behavior: 'smooth' }); // Scroll to the product section
         }
 
         function toggleMenu() {
@@ -275,6 +377,11 @@
         </div>
     </div>
 
+    <!-- Search Results Section -->
+    <div id="search-results" class="search-results">
+        <!-- Results will be dynamically inserted here -->
+    </div>
+
     <!-- Social Media Buttons -->
     <div class="social-buttons">
         <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
@@ -287,18 +394,23 @@
     <div class="note-message">
         Please note that delivery can take 7 to 14 business days.
     </div>
+	
+	<!-- Shop Button -->
+    <div style="margin-top: 20px;">
+        <a href="https://my.avon.co.za/search/by-product-id/?attach=26986046" class="shop-button">Click here to shop online</a> <!-- Replace with the actual link -->
+    </div>
 
     <!-- Content -->
     <div id="content">
-        <p>Explore our range of shampoos and conditioners designed for all hair types.</p>
-        
+        <h1>Explore our range of shampoos and conditioners.</h1>
+     
         <!-- Advance Techniques Ultimate Shine Shampoo Section -->
-        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
-            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
+        <div class="product-section">
+            <div class="product-image">
                 <img src="Images/Advance Techniques Ultimate Shine Shampoo.png" alt="Advance Techniques Ultimate Shine Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
             </div>
-            <div class="product-description" style="text-align: left;">
-                <u><h2 style="font-size: 24px;">Advance Techniques Ultimate Shine Shampoo</h2></u>
+            <div class="product-description">
+                <h2>Advance Techniques Ultimate Shine Shampoo</h2>
                 <p>Transform dry, dull hair into a radiant, glossy hair with this salt and paraben-free shampoo. Infused with shine-enhancing Crystal Light Technology, it gently cleanses without stripping natural oils, leaving your hair smooth and vibrant from the very first wash.</p>
                 <strong>Key Features:</strong>
                 <ul style="list-style-type: disc; padding-left: 20px;">
@@ -310,12 +422,12 @@
         </div>
 
         <!-- Advance Techniques Absolute Nourishment Shampoo Section -->
-        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
-            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
+        <div class="product-section">
+            <div class="product-image">
                 <img src="Images/Advance Techniques Absolute Nourishment Shampoo.png" alt="Advance Techniques Absolute Nourishment Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
             </div>
-            <div class="product-description" style="text-align: left;">
-                <u><h2 style="font-size: 24px;">Advance Techniques Absolute Nourishment Shampoo</h2></u>
+            <div class="product-description">
+                <h2>Advance Techniques Absolute Nourishment Shampoo</h2>
                 <p>Revitalize your hair with this enriching shampoo, formulated with a special blend of argan, coconut, and marula oils. It cleanses while providing deep nourishment, making it a perfect addition to your everyday hair care routine.</p>
                 <strong>Key Features:</strong>
                 <ul style="list-style-type: disc; padding-left: 20px;">
@@ -325,21 +437,38 @@
                 </ul>
             </div>
         </div>
-    </div>
-	
-	<!-- Advance Techniques Reconstruction Shampoo Section -->
-        <div class="product-section" style="display: flex; align-items: flex-start; margin-top: 30px;">
-            <div class="product-image" style="flex: 0 0 auto; margin-right: 20px;">
-                <img src="Images/Advance Techniques Reconstruction Shampoo.png" alt="Advance Techniques Absolute Nourishment Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
+
+        <!-- Advance Techniques Reconstruction Shampoo Section -->
+        <div class="product-section">
+            <div class="product-image">
+                <img src="Images/Advance Techniques Reconstruction Shampoo.png" alt="Advance Techniques Reconstruction Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
             </div>
-            <div class="product-description" style="text-align: left;">
-                <u><h2 style="font-size: 24px;">Advance Techniques Reconstruction Shampoo</h2></u>
+            <div class="product-description">
+                <h2>Advance Techniques Reconstruction Shampoo</h2>
                 <p>Revitalize damaged hair from roots to tips with Advance Techniques Reconstruction Shampoo. Formulated with Kera Construct-Panthenol Complex, this shampoo provides a protective coating to nourish and strengthen your hair, reducing split ends and breakage. Use it whenever your hair needs a restorative boost.</p>
                 <strong>Key Features:</strong>
                 <ul style="list-style-type: disc; padding-left: 20px;">
                     <li>Ideal for dry and damaged hair</li>
                     <li>Helps repair dull and breaking locks</li>
                     <li>Kera Construct-Panthenol Complex minimizes the risk of further breakage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+	
+	 <!-- Advance Techniques Hydra Boost Shampoo Section -->
+        <div class="product-section">
+            <div class="product-image">
+                <img src="Images/Advance Techniques Hydra Boost Shampoo.png" alt="Advance Techniques Reconstruction Shampoo" style="width: 300px; height: auto;"> <!-- Replace with the correct path -->
+            </div>
+            <div class="product-description">
+                <h2>Advance Techniques Hydra Boost Shampoo</h2>
+                <p>This moisturizing shampoo, enriched with Hyaluronic and Amino Acid Complex, hydrates the scalp and hair, promoting a stronger, healthier appearance. Provitamin B5 enhances moisture, luster, and sheen, while reducing static and flyaways for easier styling.</p>
+                <strong>Key Features:</strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Hydrates your hair, leaving it revitalised and shiny.</li>
+                    <li>Makes your hair feel silky, soft and smooth.</li>
+                    <li>Effectively increases the volume and fullness of your hair.</li>
                 </ul>
             </div>
         </div>
