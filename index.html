@@ -1,232 +1,512 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Rep South Africa</title>
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding: 0; 
-            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2); /* Soft turquoise gradient */
-        }
+	<!-- Meta settings for character encoding and responsive design -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+   <!-- Page title -->
+  <title>Your Rep South Africa</title>
+  
+   <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  
+  <!-- Internal CSS for page styling -->
+  <style>
+   /* Basic page styling */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    }
 
-        /* Top Navigation Bar */
-        .top-nav {
-            background-color: #00796b; /* Top navigation background color (teal) */
-            color: white;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex; /* Flexbox for layout */
-            justify-content: center; /* Center content */
-            flex-wrap: wrap; /* Wrap links for smaller screens */
-        }
-        .top-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .top-nav a:hover {
-            text-decoration: underline;
-        }
+	/* Top navigation bar styling */
+    .top-nav {
+      background-color: #00796b;
+      color: white;
+      padding: 10px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+	
+	/* Top navigation links */
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
 
-        /* Header */
-        .header { 
-            background-color: turquoise; /* Changed header background color to turquoise */
-            padding: 20px; 
-            font-size: 2rem; /* Responsive font size */
-            font-weight: bold;
-            margin-top: 60px; /* Space below the top nav */
-        }
+    .top-nav a:hover {
+      text-decoration: underline;
+    }
 
-        /* Sidebar Navigation */
-        .menu {
-            position: fixed;
-            top: 15px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        .menu img {
-            width: 40px;
-            height: 40px;
-        }
-        .sidebar {
-            position: fixed;
-            left: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            padding-top: 60px;
-            transition: left 0.3s;
-            z-index: 1001;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .sidebar a:hover {
-            background-color: #575757;
-        }
+	 /* Main header section */
+    .header {
+      background-color: turquoise;
+      padding: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 60px;
+    }
 
-        /* Button styles */
-        .social-button {
-            display: inline-block;
-            margin: 10px;
-            padding: 12px 24px;
-            background-color: #00796b; /* Button color */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem; /* Responsive font size */
-            transition: transform 0.3s; /* Add transition for pop-out effect */
-        }
-        .social-button:hover {
-            transform: scale(1.05); /* Pop-out effect on hover */
-            background-color: #005b4f; /* Darker shade on hover */
-        }
+	/* Menu icon for sidebar */
+    .menu {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
 
-        /* Container for Boxes */
-        .container {
-            display: flex; 
-            justify-content: center; 
-            align-items: flex-start; 
-            margin-top: 20px; 
-            flex-wrap: wrap; /* Allows boxes to wrap on smaller screens */
-        }
-        .box {
-            margin: 20px; /* Increased margin for better spacing */
-            text-align: center;
-            cursor: pointer;
-            width: 30%; 
-            transition: transform 0.3s; /* Add transition for hover effect */
-        }
-        .box:hover {
-            transform: scale(1.05); /* Slightly zoom on hover */
-        }
-        .box img {
-            width: auto; 
-            height: auto; 
-            max-width: 100%; 
-        }
+    .menu img {
+      width: 40px;
+      height: 40px;
+    }
 
-        /* Footer */
-        .footer {
-            background-color: #333; 
-            color: white; 
-            padding: 10px; 
-            position: relative; 
-            bottom: 0; 
-            width: 100%; 
-            text-align: center; 
-            margin-top: 20px; 
-        }
+	 /* Sidebar navigation menu */
+    .sidebar {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      padding-top: 60px;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
 
-        /* PDF Button */
-        .view-pdf-button {
-            display: inline-block;
-            margin-top: 15px; 
-            padding: 12px 24px; /* Increased padding for bigger buttons */
-            background-color: white; 
-            color: black; 
-            text-decoration: none; 
-            border-radius: 8px; /* More rounded corners */
-            font-size: 1.1rem; /* Responsive font size */
-            box-shadow: 0 4px 8px rgba(0, 0, 255, 0.6); /* Blue shadow */
-        }
-        .view-pdf-button:hover {
-            background-color: lightblue; /* Change background on hover */
-        }
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header {
-                font-size: 1.5rem; /* Smaller font size for mobile */
-            }
-            .top-nav a {
-                font-size: 14px; /* Smaller font size for mobile */
-                margin: 0 10px; /* Reduced margin */
-            }
-            .box {
-                width: 80%; /* Full width on mobile */
-            }
-        }
-    </style>
-    <script>
-        function toggleMenu() {
-            let sidebar = document.getElementById('sidebar');
-            if (sidebar.style.left === "0px") {
-                sidebar.style.left = "-250px";
-            } else {
-                sidebar.style.left = "0px";
-            }
-        }
-    </script>
+    .sidebar a:hover {
+      background-color: #575757;
+    }
+
+	 /* Styling for social media buttons */
+    .social-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background-color: #00796b;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      transition: transform 0.3s;
+    }
+
+    .social-button:hover {
+      transform: scale(1.05);
+      background-color: #005b4f;
+    }
+
+	  /* Main container for product boxes */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+	 /* Individual product box */
+    .box {
+      margin: 20px;
+      text-align: center;
+      cursor: pointer;
+      width: 30%;
+      transition: transform 0.3s;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+    }
+
+    .box img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+    }
+
+	  /* Featured products section */
+    .featured-products {
+      margin: 50px 0;
+      background: #fff3e0;
+      padding: 20px;
+    }
+
+    .featured-products h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+	/* Carousel for featured products */
+    .product-carousel {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+    }
+
+    .product-card {
+      min-width: 100%;
+      transition: transform 1s ease-in-out;
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: auto;
+      max-width: 250px;
+      border-radius: 15px;
+      object-fit: contain;
+    }
+	
+	 /* Product card states */
+    .product-card.active {
+      transform: translateX(0);
+    }
+
+    .product-card.next {
+      transform: translateX(100%);
+    }
+
+    .product-card.prev {
+      transform: translateX(-100%);
+    }
+
+	 /* Testimonials section */
+    .testimonials {
+      background-color: #e0f2f1;
+      padding: 40px 20px;
+    }
+
+    .testimonial {
+      display: none;
+      font-style: italic;
+      font-size: 1.1rem;
+    }
+
+    .testimonial.active {
+      display: block;
+    }
+
+	/* Newsletter sign-up section */--
+    .newsletter {
+      background: #fafafa;
+      padding: 40px 20px;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 250px;
+      margin-right: 10px;
+    }
+
+    .newsletter button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #00796b;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+	 /* Footer */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+	 /* Responsive styles for smaller screens */
+    @media (max-width: 768px) {
+      .header {
+        font-size: 1.5rem;
+      }
+
+      .top-nav a {
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+      .box,
+      .product-card {
+        width: 80%;
+      }
+    }
+	
+.button {
+      display: inline-block;
+      margin: 15px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      color: black;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .avon-button {
+      background-color: #ff69b4;
+    }
+
+    .avon-button:hover {
+      background-color: #ff1493;
+      transform: scale(1.05);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .shzen-button {
+      background-color: #32cd32;
+    }
+
+    .shzen-button:hover {
+      background-color: #228b22;
+      transform: scale(1.05);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .tablecharm-button {
+      background-color: #1e90ff;
+    }
+
+    .tablecharm-button:hover {
+      background-color: #104e8b;
+      transform: scale(1.05);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .hanro-button {
+      background-color: #a0522d;
+    }
+
+    .hanro-button:hover {
+      background-color: #5c3317;
+      transform: scale(1.05);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+  
+  <!-- JavaScript for rotating testimonials -->
+  <script>
+    let testimonialIndex = 0;
+    function cycleTestimonials() {
+      const testimonials = document.querySelectorAll(".testimonial");
+      testimonials.forEach((t) => t.classList.remove("active"));
+      testimonials[testimonialIndex].classList.add("active");
+      testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+    }
+    setInterval(cycleTestimonials, 5000);// Change testimonial every 5 seconds
+
+ // JavaScript for cycling featured products in the carousel
+    let productIndex = 0;
+    function cycleFeaturedProducts() {
+      const carousels = document.querySelectorAll(".product-carousel");
+      carousels.forEach((carousel) => {
+        const cards = carousel.querySelectorAll(".product-card");
+        const total = cards.length;
+        cards.forEach((card, index) => {
+          card.classList.remove("active", "next", "prev");
+          if (index === productIndex) {
+            card.classList.add("active");
+          } else if (index === (productIndex + 1) % total) {
+            card.classList.add("next");
+          } else if (index === (productIndex - 1 + total) % total) {
+            card.classList.add("prev");
+          }
+        });
+      });
+      productIndex = (productIndex + 1) % document.querySelectorAll(".product-carousel")[0].querySelectorAll(".product-card").length;
+    }
+    setInterval(cycleFeaturedProducts, 5000);// Cycle featured products every 5 seconds
+  </script>
 </head>
 <body>
-    <div class="menu" onclick="toggleMenu()">
-        <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
+ <!-- Sidebar menu icon -->
+  <div class="menu" onclick="toggleMenu()">
+    <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu" />
+  </div>
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="avon.html">Avon</a>
+    <a href="shzen.html">Sh'Zen</a>
+    <a href="tablecharm.html">Table Charm</a>
+    <a href="shop.html">Hanro's Little Things</a>
+  </div>
+  
+   <!-- Top navigation bar -->
+  <div class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="avon.html">Avon</a>
+    <a href="shzen.html">Sh'Zen</a>
+    <a href="tablecharm.html">Table Charm</a>
+    <a href="shop.html">Hanro's Little Things</a>
+  </div>
+  
+  <!-- Main header -->
+  <div class="header">Your Rep South Africa</div>
+  
+   <!-- Social media links -->
+  <div>
+    <a href="https://api.whatsapp.com/send?phone=%2B27824116327" class="social-button">WhatsApp</a>
+    <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" class="social-button">WhatsApp Channel</a>
+    <a href="https://www.facebook.com/share/161nfkdqaL/" class="social-button">Facebook</a>
+    <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" class="social-button">Instagram</a>
+  </div>
+  
+  <!-- Product boxes linking to individual pages -->
+  <div class="container">
+    <div class="box" onclick="location.href='avon.html';">
+      <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon" />
+      <div>Avon is a trusted global beauty brand offering high-quality skincare and makeup.</div>
     </div>
-    <div class="sidebar" id="sidebar">
-        <a href="index.html">Home</a>
-        <a href="avon.html">Avon</a>
-        <a href="shzen.html">Sh'Zen</a>
-        <a href="tablecharm.html">Table Charm</a>
-        <a href="shop.html">Hanro's Little Things</a>
+    <div class="box" onclick="location.href='shzen.html';">
+      <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen" />
+      <div>Sh'Zen provides natural skincare products that enhance your beauty.</div>
     </div>
-    
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <a href="index.html">Home</a>
-        <a href="avon.html">Avon</a>
-        <a href="shzen.html">Sh'Zen</a>
-        <a href="tablecharm.html">Table Charm</a>
-        <a href="shop.html">Hanro's Little Things</a>
+    <div class="box" onclick="location.href='tablecharm.html';">
+      <img src="Images/Screenshot 2025-03-27 101417.png" alt="Table Charm" />
+      <div>Table Charm offers elegant tableware for all your dining needs.</div>
     </div>
-
-    <!-- Header -->
-    <div class="header">Your Rep South Africa</div>
-
-    <!-- Social Media Buttons -->
-    <div>
-        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
-        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
-        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
-        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    <div class="box" onclick="location.href='shop.html';">
+      <img src="Images/Screenshot_2025-01-05_135939.avif" alt="Hanro's Little Things" />
+      <div>Explore unique items at Hanro's Little Things, your online shop!</div>
     </div>
-
-    <!-- Container for Boxes -->
-    <div class="container">
-        <div class="box avon" onclick="location.href='avon.html';">
-            <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon">
-            <div class="description">Avon is a trusted global beauty brand offering high-quality skincare and makeup.</div>
-        </div>
-        <div class="box shzen" onclick="location.href='shzen.html';">
-            <img src="Images/Screenshot 2025-03-27 001731.png" alt="Sh'Zen">
-            <div class="description">Sh'Zen provides natural skincare products that enhance your beauty.</div>
-        </div>
-        <div class="box tablecharm" onclick="location.href='tablecharm.html';">
-            <img src="Images/Screenshot 2025-03-27 101417.png" alt="Table Charm">
-            <div class="description">Table Charm offers elegant tableware for all your dining needs.</div>
-        </div>
-        <div class="box shop" onclick="location.href='shop.html';">
-            <img src="Images/Screenshot_2025-01-05_135939.avif" alt="Hanro's Little Things">
-            <div class="description">Explore unique items at Hanro's Little Things, your online shop!</div>
-        </div>
+  </div>
+  
+  <!-- Featured products section (Avon) -->
+  <div class="avon-featured-section" style="background-color: pink; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h2>Avon Featured Products</h2>
+	
+	 <!-- Button linking to Avon page -->
+  <a href="avon.html" class="button avon-button">Go to Avon Page</a>
+  
+    <div class="product-carousel">
+      <div class="product-card active">
+        <img src="Images/Anew Vitamin C Radiance Maximising Serum 30ml.png" alt="Product 1" />
+        <p><b>Anew Vitamin C Radiance Maximising Serum 30ml</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/Rare Pearls Eau de Parfum 50ml.png" alt="Product 2" />
+        <p><b>Rare Pearls Eau de Parfum 50ml</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/Avon Ultra Colour Matte Lipstick 3.6 grams.png" alt="Product 3" />
+        <p><b>Avon Ultra Colour Matte Lipstick 3.6 grams</b></p>
+      </div>
     </div>
-
-    <div class="footer">
-        &copy; 2025 Your Rep South Africa. All rights reserved.
+  </div>
+  
+  <!-- Featured products section (Sh'zen) -->
+<div class="sh'zen-featured-section" style="background-color: lightgreen; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h2>Sh'Zen Featured Products</h2>
+	
+	<!-- Button linking to Sh'zen page -->
+	<a href="shzen.html" class="button shzen-button">Go to Sh'Zen Page</a>
+	
+    <div class="product-carousel">
+      <div class="product-card active">
+        <img src="Images/Phyto Radiant Serum 30ml in Box.png" alt="Sh'Zen Product 1" />
+        <p><b>Phyto Radiant Serum 30ml in Box</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/Growth Plus Regrowth Concentrate for Hair 50ml.png" alt="Sh'Zen Product 2" />
+        <p><b>Growth Plus Regrowth Concentrate for Hair 50ml</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/Multivitamin 50+ tablets 30.jpg" alt="Sh'Zen Product 3" />
+        <p><b>Multivitamin 50+ tablets 30</b></p>
+      </div>
     </div>
+  </div>
+  
+  <!-- Featured products section (Table Charm) -->
+ <div class="Table Charm-featured-section" style="background-color: lightblue; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h2>Table Charm Featured Products</h2>
+	
+	<!-- Button linking to Table Charm page -->
+	 <a href="tablecharm.html" class="button tablecharm-button">Go to Table Charm Page</a>
+	
+    <div class="product-carousel">
+      <div class="product-card active">
+        <img src="Images/Sea Miracle Wellness Booster (500ml).jpeg" alt="Sh'Zen Product 1" />
+        <p><b>Sea Miracle Wellness Booster (500ml)</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/3pc Bowl Set and Lids - Teal (1.25lt, 2.5lt, 5lt).jpeg" alt="Sh'Zen Product 2" />
+        <p><b>3pc Bowl Set and Lids - Teal (1.25lt, 2.5lt, 5lt)</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/Royal Presidential Gravy Boat & Saucer.png" alt="Sh'Zen Product 3" />
+        <p><b>Royal Presidential Gravy Boat & Saucer</b></p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Featured products section (hanro's Little Things) -->
+  <div class="hanro's little things-featured-section" style="background-color: #f5deb3; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h2>Hanro's Little Things Featured Products</h2>
+	
+	<!-- Button linking to Hanro's Little Things page -->
+	<a href="shop.html" class="button hanro-button">Go to Hanro's Little Things</a>
+	
+    <div class="product-carousel">
+      <div class="product-card active">
+        <img src="Images/19 Piece Kitchenware set.png" alt="Sh'Zen Product 1" />
+        <p><b>19 Piece Kitchenware set</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/48v High Pressure Cleaning Gun.png" alt="Sh'Zen Product 2" />
+        <p><b>48v High Pressure Cleaning Gun</b></p>
+      </div>
+      <div class="product-card">
+        <img src="Images/2 Channel 1080p Vehicle Dash Cam.png" alt="Sh'Zen Product 3" />
+        <p>2 Channel 1080p Vehicle Dash Cam</p>
+      </div>
+    </div>
+  </div>
+  
+   <!-- Testimonials section -->
+  <div class="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial active">"Absolutely love the Avon collection – fantastic quality and fast delivery!"</div>
+    <div class="testimonial">"The Sh'Zen skincare range has done wonders for my skin. Highly recommend!"</div>
+    <div class="testimonial">"Hanro's Little Things is my go-to for thoughtful gifts and home items."</div>
+  </div>
+  
+  <!-- Newsletter sign-up section -->
+   <div class="newsletter-section" style="margin: 50px auto; max-width: 700px; background-color: #ffffffcc; padding: 30px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+    <h2 style="font-size: 2rem; color: #00796b; margin-bottom: 15px;">Subscribe to Our Newsletter</h2>
+    <p style="margin-bottom: 20px; font-size: 1.1rem;">Get the latest product updates, discounts, and more!</p>
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScNaHdi0CQPHNHB8KhoMVnvCVlTPvxj_G-PjjOsm78jDR8hYg/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+  
+    <!-- Footer section -->
+   <div class="footer">
+    &copy; 2025 Your Rep South Africa. All rights reserved.
+  </div>
 </body>
 </html>
+
