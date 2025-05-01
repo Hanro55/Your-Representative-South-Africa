@@ -341,6 +341,15 @@
       productIndex = (productIndex + 1) % document.querySelectorAll(".product-carousel")[0].querySelectorAll(".product-card").length;
     }
     setInterval(cycleFeaturedProducts, 5000);// Cycle featured products every 5 seconds
+
+	   function toggleMenu() {
+            let sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+        }
   </script>
 </head>
 <body>
