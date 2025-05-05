@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Table Charm - Your Rep South Africa</title>
+
+     <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -228,6 +232,27 @@
                 padding: 8px 12px; /* Adjusted padding for mobile */
             }
         }
+
+        /* Floating WhatsApp button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25D366;
+  color: white;
+  font-size: 28px;
+  padding: 14px;
+  border-radius: 50%;
+  text-align: center;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  z-index: 1001;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
+}
     </style>
     <script>
         function searchContent() {
@@ -323,5 +348,10 @@
     <div class="footer">
         &copy; 2025 Your Rep South Africa. All rights reserved.
     </div>
+    
+     <!-- WhatsApp floating button -->
+<a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="whatsapp-float">
+  <i class="fab fa-whatsapp">
+</a>
 </body>
 </html>
