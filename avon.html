@@ -21,22 +21,16 @@
       background-color: #ff4081;
       color: white;
       padding: 10px;
-      position: relative;
-      width: 100%;
-      z-index: 1000;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .top-nav a {
       color: white;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 5px 15px;
       font-size: 18px;
-    }
-
-    .top-nav a:hover {
-      text-decoration: underline;
     }
 
     .header {
@@ -89,10 +83,6 @@
       font-size: 18px;
     }
 
-    .sidebar a:hover {
-      background-color: #575757;
-    }
-
     .content {
       margin-top: 100px;
       padding: 20px;
@@ -103,6 +93,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .search-container input {
@@ -124,11 +115,30 @@
       margin-left: 10px;
     }
 
-    .search-container button:hover {
-      background-color: #245d45;
+    .pdf-container {
+      padding: 20px;
     }
 
-    .view-pdf-button {
+    .pdf-controls {
+      margin-top: 10px;
+    }
+
+    .pdf-container button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff4081;
+      color: white;
+      cursor: pointer;
+    }
+
+    .pdf-container button:hover {
+      background-color: #d81b60;
+    }
+
+    .view-pdf-button, .shop-button {
       display: inline-block;
       margin-top: 15px;
       padding: 12px 24px;
@@ -138,26 +148,6 @@
       border-radius: 5px;
       font-size: 20px;
       box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
-    }
-
-    .view-pdf-button:hover {
-      background-color: lightpink;
-    }
-
-    .shop-button {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 24px;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 20px;
-      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
-    }
-
-    .shop-button:hover {
-      background-color: lightpink;
     }
 
     .social-buttons {
@@ -168,20 +158,21 @@
     }
 
     .social-button {
-      display: inline-block;
       margin: 10px;
       padding: 12px 24px;
       background-color: #ff4081;
       color: white;
-      text-decoration: none;
       border-radius: 5px;
+      text-decoration: none;
       font-size: 18px;
-      transition: transform 0.3s;
+      transition: 0.3s;
     }
 
-    .social-button:hover {
-      transform: scale(1.05);
-      background-color: #d81b60;
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      margin-top: 20px;
     }
 
     .contact {
@@ -194,36 +185,6 @@
       display: inline-block;
     }
 
-    .contact a {
-      color: yellow;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    .footer {
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .note-message {
-      color: red;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-
-    .highlight {
-      background-color: yellow;
-    }
-
-    .additional-info {
-      text-align: left;
-      margin-top: 20px;
-    }
-
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
@@ -233,40 +194,18 @@
       font-size: 28px;
       padding: 14px;
       border-radius: 50%;
-      text-align: center;
       box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
       z-index: 1001;
-      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    canvas {
+      max-width: 100%;
+      border: 1px solid #ccc;
     }
 
     @media (max-width: 768px) {
-      .header {
-        font-size: 24px;
-        margin-top: 20px;
-      }
-      .avon-logo {
-        width: 120px;
-      }
-      .search-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .search-container input {
-        width: 100%;
-        margin-bottom: 10px;
-      }
-      .top-nav {
-        flex-direction: column;
-        align-items: center;
-      }
       .top-nav a {
         font-size: 14px;
-        margin: 5px 0;
       }
       .social-button {
         font-size: 14px;
@@ -276,6 +215,11 @@
   </style>
 
   <script>
+    function toggleMenu() {
+      let sidebar = document.getElementById('sidebar');
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+
     function searchContent() {
       let input = document.getElementById('search').value.toLowerCase();
       let contentDiv = document.getElementById('content');
@@ -289,11 +233,6 @@
       } else {
         alert('Text not found.');
       }
-    }
-
-    function toggleMenu() {
-      let sidebar = document.getElementById('sidebar');
-      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
     }
   </script>
 </head>
@@ -329,39 +268,31 @@
   </div>
 
   <div class="social-buttons">
-    <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
-    <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
-    <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
-    <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+    <a href="https://api.whatsapp.com/send?phone=%2B27824116327" class="social-button" target="_blank">WhatsApp</a>
+    <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" class="social-button" target="_blank">WhatsApp Channel</a>
+    <a href="https://www.facebook.com/share/161nfkdqaL/" class="social-button" target="_blank">Facebook</a>
+    <a href="https://www.instagram.com/hanros_little_things" class="social-button" target="_blank">Instagram</a>
   </div>
 
-  <!-- PDF Section -->
+  <!-- PDF Viewer -->
   <div class="pdf-container">
     <p><strong><u>View the latest Avon brochure below:</u></strong></p>
-    <iframe src="PDF/catalogue (1) (14)-compressed.pdf" width="100%" height="700px" style="border: none;"></iframe>
-    <br />
+    <canvas id="pdf-canvas"></canvas>
+    <div class="pdf-controls">
+      <button onclick="prevPage()">Previous</button>
+      <button onclick="toggleFullScreen()">Fullscreen</button>
+      <button onclick="nextPage()">Next</button>
+      <div id="page-info">Page 1</div>
+    </div>
     <a href="PDF/catalogue (1) (14)-compressed.pdf" target="_blank" class="view-pdf-button">Click here to open/download</a>
-  </div>
-
-  <div id="content">
-    <p>Welcome to the Avon page. Here, you can explore the latest products and offers.</p>
   </div>
 
   <div class="contact">
     <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
   </div>
 
-  <div class="note-message">
-    Please note that delivery can take 7 to 14 business days.
-  </div>
-
   <div style="margin-top: 20px;">
     <a href="https://my.avon.co.za/search/by-product-id/?attach=26986046" class="shop-button">Click here to shop online</a>
-  </div>
-
-  <div class="additional-info">
-    <h2 style="font-size: 30px; font-weight: bold; text-decoration: underline;">A little more information about Avon's products</h2>
-    <a href="Shampoos&Conditioners.html" class="social-button" style="margin-top: 10px;">Shampoos & Conditioners</a>
   </div>
 
   <div class="footer">
@@ -371,5 +302,68 @@
   <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="whatsapp-float">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- PDF.js Script -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+  <script>
+    const url = "PDF/catalogue (1) (14)-compressed.pdf";
+    let pdfDoc = null,
+        pageNum = 1,
+        canvas = document.getElementById("pdf-canvas"),
+        ctx = canvas.getContext("2d");
+
+    function renderPage(num) {
+      pdfDoc.getPage(num).then(page => {
+        const viewport = page.getViewport({ scale: 1.5 });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        const renderContext = {
+          canvasContext: ctx,
+          viewport: viewport
+        };
+        page.render(renderContext);
+        document.getElementById("page-info").textContent = `Page ${pageNum} of ${pdfDoc.numPages}`;
+      });
+    }
+
+    function nextPage() {
+      if (pageNum < pdfDoc.numPages) {
+        pageNum++;
+        renderPage(pageNum);
+      }
+    }
+
+    function prevPage() {
+      if (pageNum > 1) {
+        pageNum--;
+        renderPage(pageNum);
+      }
+    }
+
+    function toggleFullScreen() {
+      if (!document.fullscreenElement) {
+        canvas.requestFullscreen().catch(err => alert(err.message));
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Load PDF
+    pdfjsLib.getDocument(url).promise.then(doc => {
+      pdfDoc = doc;
+      renderPage(pageNum);
+    });
+
+    // Swipe gesture support
+    let touchStartX = 0;
+    canvas.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    canvas.addEventListener('touchend', e => {
+      let deltaX = e.changedTouches[0].screenX - touchStartX;
+      if (deltaX > 50) prevPage();
+      else if (deltaX < -50) nextPage();
+    });
+  </script>
 </body>
 </html>
