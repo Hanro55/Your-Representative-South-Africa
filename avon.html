@@ -251,6 +251,36 @@
         alert('Text not found.');
       }
     }
+      /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 24px; /* Smaller header size for mobile */
+                margin-top: 20px; /* Space below the top nav */
+            }
+            .avon-logo {
+                width: 120px; /* Adjusted size for better mobile visibility */
+            }
+            .search-container {
+                flex-direction: column; /* Stack search elements on mobile */
+                align-items: center; /* Center items */
+            }
+            .search-container input {
+                width: 100%; /* Full width on mobile */
+                margin-bottom: 10px; /* Space below input */
+            }
+            .top-nav {
+                flex-direction: column; /* Stack nav links */
+                align-items: center; /* Center items in mobile */
+            }
+            .top-nav a {
+                font-size: 14px; /* Smaller font size for mobile */
+                margin: 5px 0; /* Reduced margin for better spacing */
+            }
+            .social-button {
+                font-size: 14px; /* Smaller button font size for mobile */
+                padding: 8px 12px; /* Adjusted padding for mobile */
+            }
+        }
   </script>
 </head>
 
