@@ -1,390 +1,375 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avon - Your Rep South Africa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avon - Your Rep South Africa</title>
 
-	<!-- Font Awesome for icons -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-	
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin: 0; 
-            padding: 0; 
-            background: linear-gradient(to bottom, #ffe6f2, #ffb3d9); /* Soft pink gradient */
-        }
 
-        /* Top Navigation Bar */
-        .top-nav {
-            background-color: #ff4081; /* Top navigation background color */
-            color: white;
-            padding: 10px;
-            position: relative; /* Changed from fixed to relative */
-            width: 100%;
-            z-index: 1000;
-            display: flex; /* Flexbox for layout */
-            justify-content: center; /* Center content */
-        }
-        .top-nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
-        }
-        .top-nav a:hover {
-            text-decoration: underline;
-        }
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffe6f2, #ffb3d9);
+    }
 
-        /* Avon Header */
-        .header { 
-            background-color: lightpink; 
-            padding: 20px; 
-            font-size: 28px; /* Adjusted font size for better mobile fit */
-            font-weight: bold;
-            margin-top: 20px; /* Space below the top nav */
-            display: flex; /* Use flexbox for layout */
-            flex-direction: column; /* Stack elements vertically on mobile */
-            align-items: center; /* Center items */
-        }
+    .top-nav {
+      background-color: #ff4081;
+      color: white;
+      padding: 10px;
+      position: relative;
+      width: 100%;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+    }
 
-        /* Avon Logo */
-        .avon-logo {
-            margin-bottom: 10px; /* Space below the logo */
-            width: 150px; /* Adjusted size for better mobile visibility */
-            height: auto; /* Maintain aspect ratio */
-        }
+    .top-nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 18px;
+    }
 
-        /* Sidebar Navigation */
-        .menu {
-            position: fixed;
-            top: 15px;
-            left: 20px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        .menu img {
-            width: 40px;
-            height: 40px;
-        }
-        .sidebar {
-            position: fixed;
-            left: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background-color: #333;
-            padding-top: 60px;
-            transition: left 0.3s;
-            z-index: 1001;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .sidebar a:hover {
-            background-color: #575757;
-        }
+    .top-nav a:hover {
+      text-decoration: underline;
+    }
 
-        /* Main Content */
-        .content {
-            margin-top: 100px; /* Adjusted for fixed header */
-            padding: 20px;
-        }
+    .header {
+      background-color: lightpink;
+      padding: 20px;
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-        /* Search Box */
-        .search-container {
-            margin-top: 10px; /* Space above the search bar */
-            display: flex; /* Flexbox for alignment */
-            justify-content: center; /* Center align items horizontally */
-            align-items: center; /* Center align items vertically */
-        }
-        .search-container input {
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 20px; /* Rounded edges */
-            border: 1px solid #ccc;
-            width: 200px; /* Adjusted width */
-        }
-        .search-container button {
-            padding: 10px 15px;
-            font-size: 16px;
-            border-radius: 20px; /* Rounded edges for button */
-            border: none;
-            background-color: #2e8b57;
-            color: white;
-            cursor: pointer;
-            margin-left: 10px; /* Space between input and button */
-        }
-        .search-container button:hover {
-            background-color: #245d45;
-        }
+    .avon-logo {
+      margin-bottom: 10px;
+      width: 150px;
+      height: auto;
+    }
 
-        /* PDF Button */
-        .view-pdf-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 24px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 20px;
-            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6); /* Pink shadow */
-        }
-        .view-pdf-button:hover {
-            background-color: lightpink; /* Change background on hover */
-        }
-		
-		/* Shop Button */
-        .shop-button {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 12px 24px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 20px;
-            box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6); /* Pink shadow */
-        }
-        .shop-button:hover {
-            background-color: lightpink; /* Change background on hover */
-        }
+    .menu {
+      position: fixed;
+      top: 15px;
+      left: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
 
-        /* Social Media Buttons */
-        .social-buttons {
-            margin: 20px 0; /* Space above and below social buttons */
-            display: flex; /* Flexbox for alignment */
-            justify-content: center; /* Center align social buttons */
-            flex-wrap: wrap; /* Allow wrapping for mobile */
-        }
-        .social-button {
-            display: inline-block;
-            margin: 10px; /* Reduced margin for better spacing on mobile */
-            padding: 12px 24px;
-            background-color: #ff4081; /* Button color */
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 18px;
-            transition: transform 0.3s; /* Add transition for pop-out effect */
-        }
-        .social-button:hover {
-            transform: scale(1.05); /* Pop-out effect on hover */
-            background-color: #d81b60; /* Darker shade on hover */
-        }
+    .menu img {
+      width: 40px;
+      height: 40px;
+    }
 
-        /* Contact Section */
-        .contact {
-            margin-top: 20px;
-            font-size: 18px;
-            background-color: #2e8b57; /* Light dark green */
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-            display: inline-block;
-        }
-        .contact a { 
-            color: yellow; 
-            font-weight: bold; 
-            text-decoration: none; 
-        }
+    .sidebar {
+      position: fixed;
+      left: -250px;
+      top: 0;
+      width: 250px;
+      height: 100%;
+      background-color: #333;
+      padding-top: 60px;
+      transition: left 0.3s;
+      z-index: 1001;
+    }
 
-        /* Footer */
-        .footer {
-            background-color: #333; /* Dark background */
-            color: white; /* White text */
-            padding: 10px; /* Padding */
-            width: 100%; /* Full width */
-            text-align: center; /* Centered text */
-            margin-top: 20px; /* Space above the footer */
-        }
+    .sidebar a {
+      display: block;
+      color: white;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 18px;
+    }
 
-        /* Note Message */
-        .note-message {
-            color: red; /* Red color for visibility */
-            font-weight: bold; /* Bold text */
-            margin-top: 20px; /* Space above the note */
-        }
+    .sidebar a:hover {
+      background-color: #575757;
+    }
 
-        /* Highlighted Text */
-        .highlight {
-            background-color: yellow; /* Highlight color */
-        }
+    .content {
+      margin-top: 100px;
+      padding: 20px;
+    }
 
-        /* Additional Information Styles */
-        .additional-info {
-            text-align: left;
-            margin-top: 20px;
-        }
+    .search-container {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header {
-                font-size: 24px; /* Smaller header size for mobile */
-                margin-top: 20px; /* Space below the top nav */
-            }
-            .avon-logo {
-                width: 120px; /* Adjusted size for better mobile visibility */
-            }
-            .search-container {
-                flex-direction: column; /* Stack search elements on mobile */
-                align-items: center; /* Center items */
-            }
-            .search-container input {
-                width: 100%; /* Full width on mobile */
-                margin-bottom: 10px; /* Space below input */
-            }
-            .top-nav {
-                flex-direction: column; /* Stack nav links */
-                align-items: center; /* Center items in mobile */
-            }
-            .top-nav a {
-                font-size: 14px; /* Smaller font size for mobile */
-                margin: 5px 0; /* Reduced margin for better spacing */
-            }
-            .social-button {
-                font-size: 14px; /* Smaller button font size for mobile */
-                padding: 8px 12px; /* Adjusted padding for mobile */
-            }
-        }
+    .search-container input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
 
-/* Floating WhatsApp button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #25D366;
-  color: white;
-  font-size: 28px;
-  padding: 14px;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
-  z-index: 1001;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
+    .search-container button {
+      padding: 10px 15px;
+      font-size: 16px;
+      border-radius: 20px;
+      border: none;
+      background-color: #2e8b57;
+      color: white;
+      cursor: pointer;
+      margin-left: 10px;
+    }
 
-.whatsapp-float:hover {
-  transform: scale(1.1);
-  box-shadow: 3px 3px 8px rgba(0,0,0,0.4);
-}
-    </style>
-    <script>
-        function searchContent() {
-            let input = document.getElementById('search').value.toLowerCase();
-            let contentDiv = document.getElementById('content');
-            let contentHTML = contentDiv.innerHTML;
+    .search-container button:hover {
+      background-color: #245d45;
+    }
 
-            // Remove previous highlights
-            contentHTML = contentHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+    .view-pdf-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
+    }
 
-            let regex = new RegExp(input, 'gi');
-            let matches = contentHTML.match(regex);
+    .view-pdf-button:hover {
+      background-color: lightpink;
+    }
 
-            if (matches) {
-                contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
-                contentDiv.innerHTML = contentHTML;
-            } else {
-                alert('Text not found.');
-            }
-        }
+    .shop-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 24px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 20px;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.6);
+    }
 
-        function toggleMenu() {
-            let sidebar = document.getElementById('sidebar');
-            if (sidebar.style.left === "0px") {
-                sidebar.style.left = "-250px";
-            } else {
-                sidebar.style.left = "0px";
-            }
-        }
-    </script>
+    .shop-button:hover {
+      background-color: lightpink;
+    }
+
+    .social-buttons {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .social-button {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background-color: #ff4081;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: transform 0.3s;
+    }
+
+    .social-button:hover {
+      transform: scale(1.05);
+      background-color: #d81b60;
+    }
+
+    .contact {
+      margin-top: 20px;
+      font-size: 18px;
+      background-color: #2e8b57;
+      padding: 15px;
+      border-radius: 10px;
+      color: white;
+      display: inline-block;
+    }
+
+    .contact a {
+      color: yellow;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .note-message {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .highlight {
+      background-color: yellow;
+    }
+
+    .additional-info {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 28px;
+      padding: 14px;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+      z-index: 1001;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+      .avon-logo {
+        width: 120px;
+      }
+      .search-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      .search-container input {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      .top-nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      .top-nav a {
+        font-size: 14px;
+        margin: 5px 0;
+      }
+      .social-button {
+        font-size: 14px;
+        padding: 8px 12px;
+      }
+    }
+  </style>
+
+  <script>
+    function searchContent() {
+      let input = document.getElementById('search').value.toLowerCase();
+      let contentDiv = document.getElementById('content');
+      let contentHTML = contentDiv.innerHTML;
+      contentHTML = contentHTML.replace(/<span class="highlight">(.*?)<\/span>/g, '$1');
+      let regex = new RegExp(input, 'gi');
+      let matches = contentHTML.match(regex);
+      if (matches) {
+        contentHTML = contentHTML.replace(regex, match => `<span class="highlight">${match}</span>`);
+        contentDiv.innerHTML = contentHTML;
+      } else {
+        alert('Text not found.');
+      }
+    }
+
+    function toggleMenu() {
+      let sidebar = document.getElementById('sidebar');
+      sidebar.style.left = sidebar.style.left === "0px" ? "-250px" : "0px";
+    }
+  </script>
 </head>
+
 <body>
-    <div class="menu" onclick="toggleMenu()">
-        <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
-    </div>
-    <div class="sidebar" id="sidebar">
-        <a href="index.html">Home</a>
-        <a href="avon.html">Avon</a>
-        <a href="shzen.html">Sh'Zen</a>
-        <a href="tablecharm.html">Table Charm</a>
-        <a href="shop.html">Hanro's Little Things</a>
-    </div>
+  <div class="menu" onclick="toggleMenu()">
+    <img src="Images/Screenshot 2025-03-27 143455.png" alt="Menu">
+  </div>
 
-    <!-- Top Navigation Bar -->
-    <div class="top-nav">
-        <a href="index.html">Home</a>
-        <a href="avon.html">Avon</a>
-        <a href="shzen.html">Sh'Zen</a>
-        <a href="tablecharm.html">Table Charm</a>
-        <a href="shop.html">Hanro's Little Things</a>
-    </div>
+  <div class="sidebar" id="sidebar">
+    <a href="index.html">Home</a>
+    <a href="avon.html">Avon</a>
+    <a href="shzen.html">Sh'Zen</a>
+    <a href="tablecharm.html">Table Charm</a>
+    <a href="shop.html">Hanro's Little Things</a>
+  </div>
 
-    <!-- Avon Header -->
-    <div class="header">
-        <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo"> <!-- Replace with the correct path -->
-        <span>Avon</span>
-        <div class="search-container">
-            <input type="text" id="search" placeholder="Search this page">
-            <button onclick="searchContent()">Search</button>
-        </div>
-    </div>
+  <div class="top-nav">
+    <a href="index.html">Home</a>
+    <a href="avon.html">Avon</a>
+    <a href="shzen.html">Sh'Zen</a>
+    <a href="tablecharm.html">Table Charm</a>
+    <a href="shop.html">Hanro's Little Things</a>
+  </div>
 
-    <!-- Social Media Buttons -->
-    <div class="social-buttons">
-        <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
-        <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
-        <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
-        <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+  <div class="header">
+    <img src="Images/Screenshot 2025-03-27 001350.png" alt="Avon Logo" class="avon-logo">
+    <span>Avon</span>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search this page">
+      <button onclick="searchContent()">Search</button>
     </div>
+  </div>
 
-    <!-- PDF Section -->
-    <div class="pdf-container">
-        <p><strong><u>Click below to view the latest Avon brochure:</u></strong></p>
-        <a href="PDF/catalogue (1) (14)-compressed.pdf" target="_blank" class="view-pdf-button">Click here</a>
-    </div>
+  <div class="social-buttons">
+    <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="social-button">WhatsApp</a>
+    <a href="https://chat.whatsapp.com/J9n7YcrkTj58g7opjykiXp" target="_blank" class="social-button">WhatsApp Channel</a>
+    <a href="https://www.facebook.com/share/161nfkdqaL/" target="_blank" class="social-button">Facebook</a>
+    <a href="https://www.instagram.com/hanros_little_things?igsh=dDY2eWdyc3F0NGY0" target="_blank" class="social-button">Instagram</a>
+  </div>
 
-    <!-- Content -->
-    <div id="content">
-        <p>Welcome to the Avon page. Here, you can explore the latest products and offers.</p>
-    </div>
+  <!-- PDF Section -->
+  <div class="pdf-container">
+    <p><strong><u>View the latest Avon brochure below:</u></strong></p>
+    <iframe src="PDF/catalogue (1) (14)-compressed.pdf" width="100%" height="700px" style="border: none;"></iframe>
+    <br />
+    <a href="PDF/catalogue (1) (14)-compressed.pdf" target="_blank" class="view-pdf-button">Click here to open/download</a>
+  </div>
 
-    <!-- Contact Section -->
-    <div class="contact">
-        <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
-    </div>
+  <div id="content">
+    <p>Welcome to the Avon page. Here, you can explore the latest products and offers.</p>
+  </div>
 
-    <!-- Please Note Message -->
-    <div class="note-message">
-        Please note that delivery can take 7 to 14 business days.
-    </div>
-	
-	<!-- Shop Button -->
-    <div style="margin-top: 20px;">
-        <a href="https://my.avon.co.za/search/by-product-id/?attach=26986046" class="shop-button">Click here to shop online</a> <!-- Replace with the actual link -->
-    </div>
+  <div class="contact">
+    <p>Contact me on WhatsApp: <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank">Click Here</a></p>
+  </div>
 
-    <!-- Additional Information Section -->
-    <div class="additional-info" style="text-align: left; margin-top: 20px;">
-        <h2 style="font-size: 30px; font-weight: bold; text-decoration: underline;">A little more information about Avon's products</h2>
-        <a href="Shampoos&Conditioners.html" class="social-button" style="margin-top: 10px;">Shampoos & Conditioners</a>
-    </div>
+  <div class="note-message">
+    Please note that delivery can take 7 to 14 business days.
+  </div>
 
-    <!-- Footer -->
-    <div class="footer">
-        &copy; 2025 Your Rep South Africa. All rights reserved.
-	</div>
+  <div style="margin-top: 20px;">
+    <a href="https://my.avon.co.za/search/by-product-id/?attach=26986046" class="shop-button">Click here to shop online</a>
+  </div>
 
-<!-- WhatsApp floating button -->
-<a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="whatsapp-float">
-  <i class="fab fa-whatsapp"></i>
-</a>
+  <div class="additional-info">
+    <h2 style="font-size: 30px; font-weight: bold; text-decoration: underline;">A little more information about Avon's products</h2>
+    <a href="Shampoos&Conditioners.html" class="social-button" style="margin-top: 10px;">Shampoos & Conditioners</a>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 Your Rep South Africa. All rights reserved.
+  </div>
+
+  <a href="https://api.whatsapp.com/send?phone=%2B27824116327" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
