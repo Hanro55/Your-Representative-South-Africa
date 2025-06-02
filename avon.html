@@ -17,21 +17,26 @@
       background: linear-gradient(to bottom, #ffe6f2, #ffb3d9);
     }
 
-    .top-nav {
-      background-color: #ff4081;
-      color: white;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .top-nav a {
-      color: white;
-      text-decoration: none;
-      margin: 5px 15px;
-      font-size: 18px;
-    }
+     /* Top Navigation Bar */
+        .top-nav {
+            background-color: #ff4081; /* Top navigation background color */
+            color: white;
+            padding: 10px;
+            position: relative; /* Changed from fixed to relative */
+            width: 100%;
+            z-index: 1000;
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center content */
+        }
+        .top-nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+        .top-nav a:hover {
+            text-decoration: underline;
+        }
 
     .header {
       background-color: lightpink;
@@ -174,6 +179,18 @@
       padding: 10px;
       margin-top: 20px;
     }
+
+            /* Note Message */
+        .note-message {
+            color: red; /* Red color for visibility */
+            font-weight: bold; /* Bold text */
+            margin-top: 20px; /* Space above the note */
+        }
+
+        /* Highlighted Text */
+        .highlight {
+            background-color: yellow; /* Highlight color */
+        }
 
     .contact {
       margin-top: 20px;
